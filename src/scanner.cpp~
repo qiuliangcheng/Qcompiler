@@ -1,0 +1,18 @@
+/* ************************************************************************
+> File Name:     /home/qlc/my_compiler/src/scanner.cpp
+> Author:         qlc
+> WeChat:           a2744561792
+> Created Time:  2025年05月22日 星期四 21时50分53秒
+> Description:   
+ ************************************************************************/
+#include "scanner.h"
+#include <stdio.h>
+#include <string.h>
+#include "common.h"
+//手动普通的词法分析
+
+typedef struct {
+  const char* start;//指向正在处理的token
+  const char* current;//指向正在扫描的字符位置 不断移动 直到识别出一个完整的token
+  int line;//源代码行号
+} Scanner;

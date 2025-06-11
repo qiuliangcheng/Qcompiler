@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations -shared -Wl,-soname,libqlc.so -o ../../lib/libqlc.so CMakeFiles/qlc.dir/chunk.o CMakeFiles/qlc.dir/debug.o CMakeFiles/qlc.dir/memory.o CMakeFiles/qlc.dir/scanner.o CMakeFiles/qlc.dir/value.o 
