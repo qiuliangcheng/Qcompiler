@@ -1,0 +1,438 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+-    基于字节码的编译器	readme.md	/^### 基于字节码的编译器$/;"	h
+-  编译器	readme.md	/^## 编译器$/;"	h
+ALLOCATE	include/memory.h	/^#define ALLOCATE(/;"	d
+ARCHITECTURE_ID	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#   define ARCHITECTURE_ID /;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define ARCHITECTURE_ID /;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define ARCHITECTURE_ID$/;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define ARCHITECTURE_ID /;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define ARCHITECTURE_ID /;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define ARCHITECTURE_ID$/;"	d	file:
+AS_BOOL	include/value.h	/^#define AS_BOOL(/;"	d
+AS_NUMBER	include/value.h	/^#define AS_NUMBER(/;"	d
+BINARY_OP	src/vm.c	/^#define BINARY_OP(/;"	d	file:
+BINARY_OP	src/vm.c	/^#undef BINARY_OP$/;"	d	file:
+BOOL_VAL	include/value.h	/^#define BOOL_VAL(/;"	d
+CMAKE_BINARY_DIR	build/Makefile	/^CMAKE_BINARY_DIR = \/Users\/qlc\/c++_code_mac\/Qcompiler\/build$/;"	m
+CMAKE_BINARY_DIR	build/src/Makefile	/^CMAKE_BINARY_DIR = \/Users\/qlc\/c++_code_mac\/Qcompiler\/build$/;"	m
+CMAKE_BINARY_DIR	build/test/Makefile	/^CMAKE_BINARY_DIR = \/Users\/qlc\/c++_code_mac\/Qcompiler\/build$/;"	m
+CMAKE_COMMAND	build/Makefile	/^CMAKE_COMMAND = \/opt\/homebrew\/Cellar\/cmake\/3.30.5\/bin\/cmake$/;"	m
+CMAKE_COMMAND	build/src/Makefile	/^CMAKE_COMMAND = \/opt\/homebrew\/Cellar\/cmake\/3.30.5\/bin\/cmake$/;"	m
+CMAKE_COMMAND	build/test/Makefile	/^CMAKE_COMMAND = \/opt\/homebrew\/Cellar\/cmake\/3.30.5\/bin\/cmake$/;"	m
+CMAKE_SOURCE_DIR	build/Makefile	/^CMAKE_SOURCE_DIR = \/Users\/qlc\/c++_code_mac\/Qcompiler$/;"	m
+CMAKE_SOURCE_DIR	build/src/Makefile	/^CMAKE_SOURCE_DIR = \/Users\/qlc\/c++_code_mac\/Qcompiler$/;"	m
+CMAKE_SOURCE_DIR	build/test/Makefile	/^CMAKE_SOURCE_DIR = \/Users\/qlc\/c++_code_mac\/Qcompiler$/;"	m
+COMPILER_ID	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_ID /;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_ID /;"	d	file:
+COMPILER_VERSION	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION /;"	d	file:
+COMPILER_VERSION	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define COMPILER_VERSION /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL_STR	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_INTERNAL_STR /;"	d	file:
+COMPILER_VERSION_INTERNAL_STR	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_INTERNAL_STR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^  # define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^  # define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^  # define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_TWEAK /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_TWEAK /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_TWEAK /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_TWEAK /;"	d	file:
+CXX_STD	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#    define CXX_STD /;"	d	file:
+CXX_STD	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define CXX_STD /;"	d	file:
+CXX_STD_11	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define CXX_STD_11 /;"	d	file:
+CXX_STD_14	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define CXX_STD_14 /;"	d	file:
+CXX_STD_17	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define CXX_STD_17 /;"	d	file:
+CXX_STD_20	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define CXX_STD_20 /;"	d	file:
+CXX_STD_23	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define CXX_STD_23 /;"	d	file:
+CXX_STD_98	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define CXX_STD_98 /;"	d	file:
+C_STD	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define C_STD /;"	d	file:
+C_STD_11	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#define C_STD_11 /;"	d	file:
+C_STD_17	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#define C_STD_17 /;"	d	file:
+C_STD_23	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#define C_STD_23 /;"	d	file:
+C_STD_99	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#define C_STD_99 /;"	d	file:
+C_VERSION	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define C_VERSION /;"	d	file:
+C_VERSION	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define C_VERSION$/;"	d	file:
+C_VERSION	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define C_VERSION /;"	d	file:
+Chunk	include/chunk.h	/^}Chunk;$/;"	t	typeref:struct:__anon2
+DEBUG_LOG_GC	include/common.h	/^    #define DEBUG_LOG_GC$/;"	d
+DEBUG_PRINT_CODE	include/common.h	/^    #define DEBUG_PRINT_CODE$/;"	d
+DEBUG_STRESS_GC	include/common.h	/^    #define DEBUG_STRESS_GC$/;"	d
+DEBUG_TRACE_EXECUTION	include/common.h	/^    #define DEBUG_TRACE_EXECUTION$/;"	d
+DEC	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(/;"	d	file:
+DEC	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define DEC(/;"	d	file:
+EQUALS	build/Makefile	/^EQUALS = =$/;"	m
+EQUALS	build/src/Makefile	/^EQUALS = =$/;"	m
+EQUALS	build/test/Makefile	/^EQUALS = =$/;"	m
+FREE	include/memory.h	/^#define FREE(/;"	d
+FREE_ARRAY	include/memory.h	/^#define FREE_ARRAY(/;"	d
+GROW_ARRAY	include/memory.h	/^#define GROW_ARRAY(/;"	d
+GROW_CAPACITY	include/memory.h	/^#define GROW_CAPACITY(/;"	d
+HEX	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#define HEX(/;"	d	file:
+HEX	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define HEX(/;"	d	file:
+ID_VOID_MAIN	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define ID_VOID_MAIN$/;"	d	file:
+INTERPRET_COMPILE_ERROR	include/vm.h	/^  INTERPRET_COMPILE_ERROR,\/\/编译错误$/;"	e	enum:__anon10
+INTERPRET_OK	include/vm.h	/^  INTERPRET_OK,$/;"	e	enum:__anon10
+INTERPRET_RUNTIME_ERROR	include/vm.h	/^  INTERPRET_RUNTIME_ERROR \/\/运行错误$/;"	e	enum:__anon10
+IS_BOOL	include/value.h	/^#define IS_BOOL(/;"	d
+IS_NIL	include/value.h	/^#define IS_NIL(/;"	d
+IS_NUMBER	include/value.h	/^#define IS_NUMBER(/;"	d
+InterpretResult	include/vm.h	/^} InterpretResult;$/;"	t	typeref:enum:__anon10
+MY_COMMOM_H	include/common.h	/^#define MY_COMMOM_H$/;"	d
+MY_SCANNER_H	include/scanner.h	/^#define MY_SCANNER_H$/;"	d
+NAN_BOXING	include/common.h	/^    #define NAN_BOXING$/;"	d
+NIL_VAL	include/value.h	/^#define NIL_VAL /;"	d
+NUMBER_VAL	include/value.h	/^#define NUMBER_VAL(/;"	d
+OP_ADD	include/chunk.h	/^    OP_ADD,$/;"	e	enum:__anon1
+OP_CALL	include/chunk.h	/^    OP_CALL,$/;"	e	enum:__anon1
+OP_CLASS	include/chunk.h	/^    OP_CLASS,$/;"	e	enum:__anon1
+OP_CLOSE_OPVALUE	include/chunk.h	/^    OP_CLOSE_OPVALUE,$/;"	e	enum:__anon1
+OP_CONSTANT	include/chunk.h	/^    OP_CONSTANT,$/;"	e	enum:__anon1
+OP_DEFINE_GLOBAL	include/chunk.h	/^    OP_DEFINE_GLOBAL,\/\/定义全局变量$/;"	e	enum:__anon1
+OP_DIVIDE	include/chunk.h	/^    OP_DIVIDE,$/;"	e	enum:__anon1
+OP_EQUAL	include/chunk.h	/^    OP_EQUAL,$/;"	e	enum:__anon1
+OP_FALSE	include/chunk.h	/^    OP_FALSE,$/;"	e	enum:__anon1
+OP_GET_GLOBAL	include/chunk.h	/^    OP_GET_GLOBAL,$/;"	e	enum:__anon1
+OP_GET_LOCAL	include/chunk.h	/^    OP_GET_LOCAL,\/\/局部变量$/;"	e	enum:__anon1
+OP_GET_PROPERTY	include/chunk.h	/^    OP_GET_PROPERTY,\/\/类的字段属性$/;"	e	enum:__anon1
+OP_GET_SUPER	include/chunk.h	/^    OP_GET_SUPER,$/;"	e	enum:__anon1
+OP_GET_UPVALUE	include/chunk.h	/^    OP_GET_UPVALUE,\/\/定义上值 用于闭包 捕获作用域外的值$/;"	e	enum:__anon1
+OP_GREATER	include/chunk.h	/^    OP_GREATER,$/;"	e	enum:__anon1
+OP_INHERIT	include/chunk.h	/^    OP_INHERIT,\/\/继承$/;"	e	enum:__anon1
+OP_INVOKE	include/chunk.h	/^    OP_INVOKE,\/\/优化方法调用 比如class.method() 直接运行$/;"	e	enum:__anon1
+OP_JUMP	include/chunk.h	/^    OP_JUMP,\/\/函数调用 或者 if else$/;"	e	enum:__anon1
+OP_JUMP_IF_FALSE	include/chunk.h	/^    OP_JUMP_IF_FALSE,$/;"	e	enum:__anon1
+OP_LESS	include/chunk.h	/^    OP_LESS,$/;"	e	enum:__anon1
+OP_LOOP	include/chunk.h	/^    OP_LOOP,$/;"	e	enum:__anon1
+OP_METHOD	include/chunk.h	/^    OP_METHOD$/;"	e	enum:__anon1
+OP_MULTIPLY	include/chunk.h	/^    OP_MULTIPLY,$/;"	e	enum:__anon1
+OP_NEGATE	include/chunk.h	/^    OP_NEGATE,\/\/负数$/;"	e	enum:__anon1
+OP_NIL	include/chunk.h	/^    OP_NIL,$/;"	e	enum:__anon1
+OP_NOT	include/chunk.h	/^    OP_NOT,$/;"	e	enum:__anon1
+OP_POP	include/chunk.h	/^    OP_POP,$/;"	e	enum:__anon1
+OP_PRINT	include/chunk.h	/^    OP_PRINT,\/\/print$/;"	e	enum:__anon1
+OP_RETURN	include/chunk.h	/^    OP_RETURN,$/;"	e	enum:__anon1
+OP_SET_GLOBAL	include/chunk.h	/^    OP_SET_GLOBAL,\/\/修改已经在的全局变量$/;"	e	enum:__anon1
+OP_SET_LOCAL	include/chunk.h	/^    OP_SET_LOCAL,$/;"	e	enum:__anon1
+OP_SET_PROPERTY	include/chunk.h	/^    OP_SET_PROPERTY,$/;"	e	enum:__anon1
+OP_SET_UPVALUE	include/chunk.h	/^    OP_SET_UPVALUE,$/;"	e	enum:__anon1
+OP_SUBTRACT	include/chunk.h	/^    OP_SUBTRACT,$/;"	e	enum:__anon1
+OP_SUPER_INVOKE	include/chunk.h	/^    OP_SUPER_INVOKE,\/\/超类方法的优化调用$/;"	e	enum:__anon1
+OP_TRUE	include/chunk.h	/^    OP_TRUE,$/;"	e	enum:__anon1
+OpCode	include/chunk.h	/^}OpCode;$/;"	t	typeref:enum:__anon1
+PLATFORM_ID	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define PLATFORM_ID /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define PLATFORM_ID$/;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define PLATFORM_ID /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define PLATFORM_ID$/;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define PLATFORM_ID /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define PLATFORM_ID$/;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define PLATFORM_ID /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define PLATFORM_ID$/;"	d	file:
+PREC_AND	src/compiler.c	/^    PREC_AND,         \/\/ and$/;"	e	enum:__anon13	file:
+PREC_ASSIGNMENT	src/compiler.c	/^    PREC_ASSIGNMENT,  \/\/ =$/;"	e	enum:__anon13	file:
+PREC_CALL	src/compiler.c	/^    PREC_CALL,        \/\/ . ()$/;"	e	enum:__anon13	file:
+PREC_COMPARISON	src/compiler.c	/^    PREC_COMPARISON,  \/\/ < > <= >=$/;"	e	enum:__anon13	file:
+PREC_EQUALITY	src/compiler.c	/^    PREC_EQUALITY,    \/\/ == !=$/;"	e	enum:__anon13	file:
+PREC_FACTOR	src/compiler.c	/^    PREC_FACTOR,      \/\/ * \/$/;"	e	enum:__anon13	file:
+PREC_NONE	src/compiler.c	/^    PREC_NONE,$/;"	e	enum:__anon13	file:
+PREC_OR	src/compiler.c	/^    PREC_OR,          \/\/ or$/;"	e	enum:__anon13	file:
+PREC_PRIMARY	src/compiler.c	/^    PREC_PRIMARY$/;"	e	enum:__anon13	file:
+PREC_TERM	src/compiler.c	/^    PREC_TERM,        \/\/ + -$/;"	e	enum:__anon13	file:
+PREC_UNARY	src/compiler.c	/^    PREC_UNARY,       \/\/ ! -$/;"	e	enum:__anon13	file:
+ParseFn	src/compiler.c	/^typedef void(*ParseFn)();$/;"	t	file:
+ParseRule	src/compiler.c	/^} ParseRule;$/;"	t	typeref:struct:__anon14	file:
+Parser	src/compiler.c	/^} Parser;\/\/解析code$/;"	t	typeref:struct:__anon12	file:
+Precedence	src/compiler.c	/^} Precedence;$/;"	t	typeref:enum:__anon13	file:
+QLC_CHUNK_H	include/chunk.h	/^#define QLC_CHUNK_H$/;"	d
+QLC_COMPILER_H	include/compiler.h	/^#define QLC_COMPILER_H$/;"	d
+QLC_DEBUG_H	include/debug.h	/^#define QLC_DEBUG_H$/;"	d
+QLC_MEMORY_H	include/memory.h	/^#define QLC_MEMORY_H$/;"	d
+QLC_VALUE_H	include/value.h	/^#define QLC_VALUE_H$/;"	d
+QLC_VM_H	include/vm.h	/^#define QLC_VM_H$/;"	d
+READ_BYTE	src/vm.c	/^#define READ_BYTE(/;"	d	file:
+READ_BYTE	src/vm.c	/^#undef READ_BYTE$/;"	d	file:
+READ_CONSTANT	src/vm.c	/^#define READ_CONSTANT(/;"	d	file:
+READ_CONSTANT	src/vm.c	/^#undef READ_CONSTANT$/;"	d	file:
+RM	build/Makefile	/^RM = \/opt\/homebrew\/Cellar\/cmake\/3.30.5\/bin\/cmake -E rm -f$/;"	m
+RM	build/src/Makefile	/^RM = \/opt\/homebrew\/Cellar\/cmake\/3.30.5\/bin\/cmake -E rm -f$/;"	m
+RM	build/test/Makefile	/^RM = \/opt\/homebrew\/Cellar\/cmake\/3.30.5\/bin\/cmake -E rm -f$/;"	m
+SHELL	build/Makefile	/^SHELL = \/bin\/sh$/;"	m
+SHELL	build/src/Makefile	/^SHELL = \/bin\/sh$/;"	m
+SHELL	build/test/Makefile	/^SHELL = \/bin\/sh$/;"	m
+SIMULATE_ID	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_ID /;"	d	file:
+SIMULATE_ID	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define SIMULATE_ID /;"	d	file:
+SIMULATE_ID	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_ID /;"	d	file:
+SIMULATE_ID	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define SIMULATE_ID /;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_MAJOR /;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define SIMULATE_VERSION_MAJOR /;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_VERSION_MAJOR /;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define SIMULATE_VERSION_MAJOR /;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_MINOR /;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define SIMULATE_VERSION_MINOR /;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_VERSION_MINOR /;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define SIMULATE_VERSION_MINOR /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#   define SIMULATE_VERSION_PATCH /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_PATCH /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define SIMULATE_VERSION_PATCH /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define SIMULATE_VERSION_PATCH /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_VERSION_PATCH /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define SIMULATE_VERSION_PATCH /;"	d	file:
+STACK_MAX	include/vm.h	/^#define STACK_MAX /;"	d
+STRINGIFY	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY(/;"	d	file:
+STRINGIFY	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define STRINGIFY(/;"	d	file:
+STRINGIFY_HELPER	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY_HELPER(/;"	d	file:
+STRINGIFY_HELPER	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define STRINGIFY_HELPER(/;"	d	file:
+Scanner	src/scanner.c	/^} Scanner;$/;"	t	typeref:struct:__anon11	file:
+TOKEN_AND	include/scanner.h	/^    TOKEN_AND,           \/\/ and 或 &&$/;"	e	enum:__anon7
+TOKEN_BANG	include/scanner.h	/^    TOKEN_BANG,          \/\/ !$/;"	e	enum:__anon7
+TOKEN_BANG_EQUAL	include/scanner.h	/^    TOKEN_BANG_EQUAL,    \/\/ !=$/;"	e	enum:__anon7
+TOKEN_CLASS	include/scanner.h	/^    TOKEN_CLASS,         \/\/ class$/;"	e	enum:__anon7
+TOKEN_COMMA	include/scanner.h	/^    TOKEN_COMMA,         \/\/ ,$/;"	e	enum:__anon7
+TOKEN_DOT	include/scanner.h	/^    TOKEN_DOT,           \/\/ .$/;"	e	enum:__anon7
+TOKEN_ELSE	include/scanner.h	/^    TOKEN_ELSE,          \/\/ else$/;"	e	enum:__anon7
+TOKEN_EOF	include/scanner.h	/^    TOKEN_EOF            \/\/ 文件结束符$/;"	e	enum:__anon7
+TOKEN_EQUAL	include/scanner.h	/^    TOKEN_EQUAL,         \/\/ =$/;"	e	enum:__anon7
+TOKEN_EQUAL_EQUAL	include/scanner.h	/^    TOKEN_EQUAL_EQUAL,   \/\/ ==$/;"	e	enum:__anon7
+TOKEN_ERROR	include/scanner.h	/^    TOKEN_ERROR,         \/\/ 词法错误$/;"	e	enum:__anon7
+TOKEN_FALSE	include/scanner.h	/^    TOKEN_FALSE,         \/\/ false$/;"	e	enum:__anon7
+TOKEN_FOR	include/scanner.h	/^    TOKEN_FOR,           \/\/ for$/;"	e	enum:__anon7
+TOKEN_FUN	include/scanner.h	/^    TOKEN_FUN,           \/\/ fun 或 function$/;"	e	enum:__anon7
+TOKEN_GREATER	include/scanner.h	/^    TOKEN_GREATER,       \/\/ >$/;"	e	enum:__anon7
+TOKEN_GREATER_EQUAL	include/scanner.h	/^    TOKEN_GREATER_EQUAL, \/\/ >=$/;"	e	enum:__anon7
+TOKEN_IDENTIFIER	include/scanner.h	/^    TOKEN_IDENTIFIER,    \/\/ 如: count, maxValue$/;"	e	enum:__anon7
+TOKEN_IF	include/scanner.h	/^    TOKEN_IF,            \/\/ if$/;"	e	enum:__anon7
+TOKEN_LEFT_BRACE	include/scanner.h	/^    TOKEN_LEFT_BRACE,    \/\/ {$/;"	e	enum:__anon7
+TOKEN_LEFT_PAREN	include/scanner.h	/^    TOKEN_LEFT_PAREN,    \/\/ ($/;"	e	enum:__anon7
+TOKEN_LESS	include/scanner.h	/^    TOKEN_LESS,          \/\/ <$/;"	e	enum:__anon7
+TOKEN_LESS_EQUAL	include/scanner.h	/^    TOKEN_LESS_EQUAL,    \/\/ <=$/;"	e	enum:__anon7
+TOKEN_MINUS	include/scanner.h	/^    TOKEN_MINUS,         \/\/ -$/;"	e	enum:__anon7
+TOKEN_NIL	include/scanner.h	/^    TOKEN_NIL,           \/\/ nil 或 null$/;"	e	enum:__anon7
+TOKEN_NUMBER	include/scanner.h	/^    TOKEN_NUMBER,        \/\/ 如: 42, 3.14$/;"	e	enum:__anon7
+TOKEN_OR	include/scanner.h	/^    TOKEN_OR,            \/\/ or 或 ||$/;"	e	enum:__anon7
+TOKEN_PLUS	include/scanner.h	/^    TOKEN_PLUS,          \/\/ +$/;"	e	enum:__anon7
+TOKEN_PRINT	include/scanner.h	/^    TOKEN_PRINT,         \/\/ print 或 console.log$/;"	e	enum:__anon7
+TOKEN_RETURN	include/scanner.h	/^    TOKEN_RETURN,        \/\/ return$/;"	e	enum:__anon7
+TOKEN_RIGHT_BRACE	include/scanner.h	/^    TOKEN_RIGHT_BRACE,   \/\/ }$/;"	e	enum:__anon7
+TOKEN_RIGHT_PAREN	include/scanner.h	/^    TOKEN_RIGHT_PAREN,   \/\/ )$/;"	e	enum:__anon7
+TOKEN_SEMICOLON	include/scanner.h	/^    TOKEN_SEMICOLON,     \/\/ ;$/;"	e	enum:__anon7
+TOKEN_SLASH	include/scanner.h	/^    TOKEN_SLASH,         \/\/ \/$/;"	e	enum:__anon7
+TOKEN_STAR	include/scanner.h	/^    TOKEN_STAR,          \/\/ *$/;"	e	enum:__anon7
+TOKEN_STRING	include/scanner.h	/^    TOKEN_STRING,        \/\/ 如: "hello"$/;"	e	enum:__anon7
+TOKEN_SUPER	include/scanner.h	/^    TOKEN_SUPER,         \/\/ super$/;"	e	enum:__anon7
+TOKEN_THIS	include/scanner.h	/^    TOKEN_THIS,          \/\/ this 或 self$/;"	e	enum:__anon7
+TOKEN_TRUE	include/scanner.h	/^    TOKEN_TRUE,          \/\/ true$/;"	e	enum:__anon7
+TOKEN_VAR	include/scanner.h	/^    TOKEN_VAR,           \/\/ 数据类型$/;"	e	enum:__anon7
+TOKEN_WHILE	include/scanner.h	/^    TOKEN_WHILE,         \/\/ while$/;"	e	enum:__anon7
+Token	include/scanner.h	/^}Token;$/;"	t	typeref:struct:__anon8
+TokenType	include/scanner.h	/^} TokenType;$/;"	t	typeref:enum:__anon7
+UINT8_COUNT	include/common.h	/^    #define UINT8_COUNT /;"	d
+VAL_BOOL	include/value.h	/^    VAL_BOOL,$/;"	e	enum:__anon3
+VAL_NIL	include/value.h	/^    VAL_NIL,$/;"	e	enum:__anon3
+VAL_NUMBER	include/value.h	/^    VAL_NUMBER,$/;"	e	enum:__anon3
+VAL_OBJ	include/value.h	/^    VAL_OBJ$/;"	e	enum:__anon3
+VERBOSE	build/Makefile	/^VERBOSE = 1$/;"	m
+VERBOSE	build/src/Makefile	/^VERBOSE = 1$/;"	m
+VERBOSE	build/test/Makefile	/^VERBOSE = 1$/;"	m
+VM	include/vm.h	/^} VM;$/;"	t	typeref:struct:__anon9
+Value	include/value.h	/^}Value;$/;"	t	typeref:struct:__anon4
+ValueArray	include/value.h	/^} ValueArray;\/\/常量数组 $/;"	t	typeref:struct:__anon6
+ValueType	include/value.h	/^}ValueType;$/;"	t	typeref:enum:__anon3
+__anon11::current	src/scanner.c	/^  const char* current;\/\/指向正在扫描的字符位置 不断移动 直到识别出一个完整的token$/;"	m	struct:__anon11	file:	access:public
+__anon11::line	src/scanner.c	/^  int line;\/\/源代码行号  扫描整个文件 将整个的行号传递给token$/;"	m	struct:__anon11	file:	access:public
+__anon11::start	src/scanner.c	/^  const char* start;\/\/指向正在处理的token$/;"	m	struct:__anon11	file:	access:public
+__anon12::current	src/compiler.c	/^    Token current;$/;"	m	struct:__anon12	file:	access:public
+__anon12::hadError	src/compiler.c	/^    bool hadError;$/;"	m	struct:__anon12	file:	access:public
+__anon12::panicMode	src/compiler.c	/^    bool panicMode;\/\/防止出现级连效应$/;"	m	struct:__anon12	file:	access:public
+__anon12::previous	src/compiler.c	/^    Token previous;$/;"	m	struct:__anon12	file:	access:public
+__anon14::infix	src/compiler.c	/^    ParseFn infix;$/;"	m	struct:__anon14	file:	access:public
+__anon14::precedence	src/compiler.c	/^    Precedence precedence;$/;"	m	struct:__anon14	file:	access:public
+__anon14::prefix	src/compiler.c	/^    ParseFn prefix;$/;"	m	struct:__anon14	file:	access:public
+__anon2::capacity	include/chunk.h	/^    int capacity;\/\/数组中的容量$/;"	m	struct:__anon2	access:public
+__anon2::code	include/chunk.h	/^    uint8_t* code;$/;"	m	struct:__anon2	access:public
+__anon2::constants	include/chunk.h	/^    ValueArray constants;\/\/常量数组$/;"	m	struct:__anon2	access:public
+__anon2::count	include/chunk.h	/^    int count;\/\/已经使用了多少code$/;"	m	struct:__anon2	access:public
+__anon2::lines	include/chunk.h	/^    int* lines;\/\/每个指令处于的行数 $/;"	m	struct:__anon2	access:public
+__anon4::__anon5::boolean	include/value.h	/^        bool boolean;$/;"	m	union:__anon4::__anon5	access:public
+__anon4::__anon5::number	include/value.h	/^        double number;$/;"	m	union:__anon4::__anon5	access:public
+__anon4::as	include/value.h	/^    }as;$/;"	m	struct:__anon4	typeref:union:__anon4::__anon5	access:public
+__anon4::type	include/value.h	/^    ValueType type;$/;"	m	struct:__anon4	access:public
+__anon6::capacity	include/value.h	/^  int capacity;$/;"	m	struct:__anon6	access:public
+__anon6::count	include/value.h	/^  int count;$/;"	m	struct:__anon6	access:public
+__anon6::values	include/value.h	/^  Value* values;$/;"	m	struct:__anon6	access:public
+__anon8::length	include/scanner.h	/^    int length;$/;"	m	struct:__anon8	access:public
+__anon8::line	include/scanner.h	/^    int line;\/\/行$/;"	m	struct:__anon8	access:public
+__anon8::start	include/scanner.h	/^    const char* start;$/;"	m	struct:__anon8	access:public
+__anon8::type	include/scanner.h	/^    TokenType type;$/;"	m	struct:__anon8	access:public
+__anon9::chunk	include/vm.h	/^  Chunk* chunk;$/;"	m	struct:__anon9	access:public
+__anon9::ip	include/vm.h	/^  uint8_t *ip;\/\/指向正在运行指令的指针$/;"	m	struct:__anon9	access:public
+__anon9::stack	include/vm.h	/^  Value stack[STACK_MAX];\/\/运行时的栈$/;"	m	struct:__anon9	access:public
+__anon9::stackTop	include/vm.h	/^  Value* stackTop;$/;"	m	struct:__anon9	access:public
+__has_include	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^#  define __has_include(/;"	d	file:
+__has_include	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define __has_include(/;"	d	file:
+addConstant	src/chunk.c	/^int addConstant(Chunk* chunk, Value value) {$/;"	f	signature:(Chunk* chunk, Value value)
+advance	src/compiler.c	/^static void advance() {$/;"	f	file:
+advance	src/scanner.c	/^static char advance() {$/;"	f	file:
+and_	src/compiler.c	/^static void and_(){}$/;"	f	file:
+as	include/value.h	/^    }as;$/;"	m	struct:__anon4	typeref:union:__anon4::__anon5	access:public
+binary	src/compiler.c	/^static void binary() {$/;"	f	file:
+boolean	include/value.h	/^        bool boolean;$/;"	m	union:__anon4::__anon5	access:public
+call	src/compiler.c	/^static void call(){}$/;"	f	file:
+capacity	include/chunk.h	/^    int capacity;\/\/数组中的容量$/;"	m	struct:__anon2	access:public
+capacity	include/value.h	/^  int capacity;$/;"	m	struct:__anon6	access:public
+checkKeyword	src/scanner.c	/^static TokenType checkKeyword(int start, int length,const char* rest, TokenType type) {$/;"	f	file:	signature:(int start, int length,const char* rest, TokenType type)
+chunk	include/vm.h	/^  Chunk* chunk;$/;"	m	struct:__anon9	access:public
+code	include/chunk.h	/^    uint8_t* code;$/;"	m	struct:__anon2	access:public
+compile	src/compiler.c	/^bool compile(const char* source,Chunk *chunk){$/;"	f	signature:(const char* source,Chunk *chunk)
+compilingChunk	src/compiler.c	/^Chunk* compilingChunk;$/;"	v
+const	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define const$/;"	d	file:
+constantInstruction	src/debug.c	/^static int constantInstruction(const char* name, Chunk* chunk,$/;"	f	file:	signature:(const char* name, Chunk* chunk, int offset)
+constants	include/chunk.h	/^    ValueArray constants;\/\/常量数组$/;"	m	struct:__anon2	access:public
+consume	src/compiler.c	/^static void consume(TokenType type, const char* message) {$/;"	f	file:	signature:(TokenType type, const char* message)
+count	include/chunk.h	/^    int count;\/\/已经使用了多少code$/;"	m	struct:__anon2	access:public
+count	include/value.h	/^  int count;$/;"	m	struct:__anon6	access:public
+current	src/compiler.c	/^    Token current;$/;"	m	struct:__anon12	file:	access:public
+current	src/scanner.c	/^  const char* current;\/\/指向正在扫描的字符位置 不断移动 直到识别出一个完整的token$/;"	m	struct:__anon11	file:	access:public
+currentChunk	src/compiler.c	/^static Chunk* currentChunk() {$/;"	f	file:
+disassembleChunk	src/debug.c	/^void disassembleChunk(Chunk* chunk, const char* name) {$/;"	f	signature:(Chunk* chunk, const char* name)
+disassembleInstruction	src/debug.c	/^int disassembleInstruction(Chunk* chunk,int offset){$/;"	f	signature:(Chunk* chunk,int offset)
+dot	src/compiler.c	/^static void dot(){}$/;"	f	file:
+emitByte	src/compiler.c	/^static void emitByte(uint8_t byte) {$/;"	f	file:	signature:(uint8_t byte)
+emitBytes	src/compiler.c	/^static void emitBytes(uint8_t byte1, uint8_t byte2) {$/;"	f	file:	signature:(uint8_t byte1, uint8_t byte2)
+emitConstant	src/compiler.c	/^static void emitConstant(Value value) {$/;"	f	file:	signature:(Value value)
+emitReturn	src/compiler.c	/^static void emitReturn() {$/;"	f	file:
+endCompiler	src/compiler.c	/^static void endCompiler() {$/;"	f	file:
+error	src/compiler.c	/^static void error(const char* message) {$/;"	f	file:	signature:(const char* message)
+errorAt	src/compiler.c	/^static void errorAt(Token* token, const char* message) {$/;"	f	file:	signature:(Token* token, const char* message)
+errorAtCurrent	src/compiler.c	/^static void errorAtCurrent(const char* message) {$/;"	f	file:	signature:(const char* message)
+errorToken	src/scanner.c	/^static Token errorToken(const char* message) {$/;"	f	file:	signature:(const char* message)
+expression	src/compiler.c	/^static void expression() {$/;"	f	file:
+freeChunk	src/chunk.c	/^void freeChunk(Chunk* chunk) {$/;"	f	signature:(Chunk* chunk)
+freeVM	src/vm.c	/^void freeVM() {$/;"	f
+freeValueArray	src/value.c	/^void freeValueArray(ValueArray* array) {$/;"	f	signature:(ValueArray* array)
+getRule	src/compiler.c	/^static ParseRule* getRule(TokenType type) {$/;"	f	file:	signature:(TokenType type)
+grouping	src/compiler.c	/^static void grouping() {$/;"	f	file:
+hadError	src/compiler.c	/^    bool hadError;$/;"	m	struct:__anon12	file:	access:public
+identifier	src/scanner.c	/^static Token identifier() {$/;"	f	file:
+identifierType	src/scanner.c	/^static TokenType identifierType() {$/;"	f	file:
+infix	src/compiler.c	/^    ParseFn infix;$/;"	m	struct:__anon14	file:	access:public
+info_arch	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
+info_arch	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
+info_compiler	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v
+info_compiler	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v
+info_cray	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";$/;"	v
+info_cray	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";$/;"	v
+info_language_extensions_default	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^const char* info_language_extensions_default = "INFO" ":" "extensions_default["$/;"	v
+info_language_extensions_default	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^const char* info_language_extensions_default = "INFO" ":" "extensions_default["$/;"	v
+info_language_standard_default	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^const char* info_language_standard_default =$/;"	v
+info_language_standard_default	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^const char* info_language_standard_default = "INFO" ":" "standard_default["$/;"	v
+info_platform	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v
+info_platform	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v
+info_simulate	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^char const* info_simulate = "INFO" ":" "simulate[" SIMULATE_ID "]";$/;"	v
+info_simulate	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_simulate = "INFO" ":" "simulate[" SIMULATE_ID "]";$/;"	v
+info_simulate_version	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^char const info_simulate_version[] = {$/;"	v
+info_simulate_version	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_simulate_version[] = {$/;"	v
+info_version	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^char const info_version[] = {$/;"	v
+info_version	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^char const* info_version = "INFO" ":" "compiler_version[" COMPILER_VERSION "]";$/;"	v
+info_version	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version[] = {$/;"	v
+info_version	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_version = "INFO" ":" "compiler_version[" COMPILER_VERSION "]";$/;"	v
+info_version_internal	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^char const info_version_internal[] = {$/;"	v
+info_version_internal	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^char const* info_version_internal = "INFO" ":" "compiler_version_internal[" COMPILER_VERSION_INTERNAL_STR "]";$/;"	v
+info_version_internal	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version_internal[] = {$/;"	v
+info_version_internal	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_version_internal = "INFO" ":" "compiler_version_internal[" COMPILER_VERSION_INTERNAL_STR "]";$/;"	v
+initChunk	src/chunk.c	/^void initChunk(Chunk* chunk) {$/;"	f	signature:(Chunk* chunk)
+initScanner	src/scanner.c	/^void initScanner(const char* source) {$/;"	f	signature:(const char* source)
+initVM	src/vm.c	/^void initVM() {$/;"	f
+initValueArray	src/value.c	/^void initValueArray(ValueArray* array) {$/;"	f	signature:(ValueArray* array)
+interpret	src/vm.c	/^InterpretResult interpret(const char* source) {$/;"	f	signature:(const char* source)
+ip	include/vm.h	/^  uint8_t *ip;\/\/指向正在运行指令的指针$/;"	m	struct:__anon9	access:public
+isAlpha	src/scanner.c	/^static bool isAlpha(char c) {$/;"	f	file:	signature:(char c)
+isAtEnd	src/scanner.c	/^static bool isAtEnd() {$/;"	f	file:
+isDigit	src/scanner.c	/^static bool isDigit(char c) {$/;"	f	file:	signature:(char c)
+length	include/scanner.h	/^    int length;$/;"	m	struct:__anon8	access:public
+line	include/scanner.h	/^    int line;\/\/行$/;"	m	struct:__anon8	access:public
+line	src/scanner.c	/^  int line;\/\/源代码行号  扫描整个文件 将整个的行号传递给token$/;"	m	struct:__anon11	file:	access:public
+lines	include/chunk.h	/^    int* lines;\/\/每个指令处于的行数 $/;"	m	struct:__anon2	access:public
+literal	src/compiler.c	/^static void literal() {$/;"	f	file:
+main	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^int main(argc, argv) int argc; char *argv[];$/;"	f
+main	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/;"	f
+main	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^int main(int argc, char* argv[])$/;"	f	signature:(int argc, char* argv[])
+main	test/test.c	/^int main(int argc,char** argv){$/;"	f	signature:(int argc,char** argv)
+makeConstant	src/compiler.c	/^uint8_t makeConstant(Value value){$/;"	f	signature:(Value value)
+makeToken	src/scanner.c	/^static Token makeToken(TokenType type) {$/;"	f	file:	signature:(TokenType type)
+match	src/scanner.c	/^static bool match(char c){$/;"	f	file:	signature:(char c)
+number	include/value.h	/^        double number;$/;"	m	union:__anon4::__anon5	access:public
+number	src/compiler.c	/^static void number() {$/;"	f	file:
+number	src/scanner.c	/^static Token number() {$/;"	f	file:
+or_	src/compiler.c	/^static void or_(){}$/;"	f	file:
+panicMode	src/compiler.c	/^    bool panicMode;\/\/防止出现级连效应$/;"	m	struct:__anon12	file:	access:public
+parsePrecedence	src/compiler.c	/^static void parsePrecedence(Precedence precedence) {$/;"	f	file:	signature:(Precedence precedence)
+parser	src/compiler.c	/^Parser parser;$/;"	v
+peek	src/scanner.c	/^static char peek() {$/;"	f	file:
+peek	src/vm.c	/^static Value peek(int distance) {$/;"	f	file:	signature:(int distance)
+peekNext	src/scanner.c	/^static char peekNext() {$/;"	f	file:
+pop	src/vm.c	/^Value pop(){$/;"	f
+precedence	src/compiler.c	/^    Precedence precedence;$/;"	m	struct:__anon14	file:	access:public
+prefix	src/compiler.c	/^    ParseFn prefix;$/;"	m	struct:__anon14	file:	access:public
+previous	src/compiler.c	/^    Token previous;$/;"	m	struct:__anon12	file:	access:public
+printValue	src/value.c	/^void printValue(Value value) {$/;"	f	signature:(Value value)
+push	src/vm.c	/^void push(Value value) {$/;"	f	signature:(Value value)
+qnxnto	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
+qnxnto	build/CMakeFiles/3.30.5/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
+readFile	test/test.c	/^static char* readFile(const char* path) {$/;"	f	file:	signature:(const char* path)
+reallocate	src/memory.c	/^void* reallocate(void* pointer,size_t oldSize,size_t newSize){$/;"	f	signature:(void* pointer,size_t oldSize,size_t newSize)
+repl	test/test.c	/^static void repl() {$/;"	f	file:
+resetStack	src/vm.c	/^static void resetStack() {$/;"	f	file:
+rules	src/compiler.c	/^ParseRule rules[] = {$/;"	v
+run	src/vm.c	/^static InterpretResult run() {$/;"	f	file:
+runFile	test/test.c	/^static void runFile(const char* path) {$/;"	f	file:	signature:(const char* path)
+runtimeError	src/vm.c	/^static void runtimeError(const char* format, ...) {$/;"	f	file:	signature:(const char* format, ...)
+scanToken	src/scanner.c	/^Token scanToken() {$/;"	f
+scanner	src/scanner.c	/^Scanner scanner;$/;"	v
+simpleInstruction	src/debug.c	/^static int simpleInstruction(const char* name, int offset) {$/;"	f	file:	signature:(const char* name, int offset)
+skipWhitespace	src/scanner.c	/^static void skipWhitespace() {$/;"	f	file:
+stack	include/vm.h	/^  Value stack[STACK_MAX];\/\/运行时的栈$/;"	m	struct:__anon9	access:public
+stackTop	include/vm.h	/^  Value* stackTop;$/;"	m	struct:__anon9	access:public
+start	include/scanner.h	/^    const char* start;$/;"	m	struct:__anon8	access:public
+start	src/scanner.c	/^  const char* start;\/\/指向正在处理的token$/;"	m	struct:__anon11	file:	access:public
+string	src/compiler.c	/^static void string(){}$/;"	f	file:
+string	src/scanner.c	/^static Token string(){$/;"	f	file:
+super_	src/compiler.c	/^static void super_(){}$/;"	f	file:
+this_	src/compiler.c	/^static void this_(){}$/;"	f	file:
+type	include/scanner.h	/^    TokenType type;$/;"	m	struct:__anon8	access:public
+type	include/value.h	/^    ValueType type;$/;"	m	struct:__anon4	access:public
+unary	src/compiler.c	/^static void unary() {$/;"	f	file:
+values	include/value.h	/^  Value* values;$/;"	m	struct:__anon6	access:public
+variable	src/compiler.c	/^static void variable(){}$/;"	f	file:
+vm	src/vm.c	/^VM vm;\/\/全局变量$/;"	v
+volatile	build/CMakeFiles/3.30.5/CompilerIdC/CMakeCCompilerId.c	/^# define volatile$/;"	d	file:
+writeChunk	src/chunk.c	/^void writeChunk(Chunk* chunk,uint8_t byte,int line){$/;"	f	signature:(Chunk* chunk,uint8_t byte,int line)
+writeValueArray	src/value.c	/^void writeValueArray(ValueArray* array, Value value) {$/;"	f	signature:(ValueArray* array, Value value)

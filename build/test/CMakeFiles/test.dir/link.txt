@@ -1,1 +1,0 @@
-/usr/bin/cc -rdynamic CMakeFiles/test.dir/test.o -o ../../bin/test  -Wl,-rpath,/home/qlc/my_compiler/lib ../../lib/libqlc.so 

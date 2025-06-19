@@ -9,7 +9,7 @@
 #define QLC_MEMORY_H
 
 #include "common.h"
-
+#include "object.h"
 
 #define ALLOCATE(type, count) \
     (type*)reallocate(NULL, 0, sizeof(type) * (count))  //直接分配新内存
@@ -27,6 +27,10 @@
     reallocate(pointer, sizeof(type) * (oldCount), 0)
 
 void* reallocate(void* pointer, size_t oldSize, size_t newSize);
+void freeObjects();
+
+
+
 
 
 #endif

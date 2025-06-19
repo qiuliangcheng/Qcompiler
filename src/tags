@@ -1,0 +1,198 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ALLOCATE_OBJ	object.c	/^#define ALLOCATE_OBJ(/;"	d	file:
+BINARY_OP	vm.c	/^#define BINARY_OP(/;"	d	file:
+BINARY_OP	vm.c	/^#undef BINARY_OP$/;"	d	file:
+Compiler	compiler.c	/^} Compiler;$/;"	t	typeref:struct:__anon5	file:
+FunctionType	compiler.c	/^} FunctionType;$/;"	t	typeref:enum:__anon4	file:
+Local	compiler.c	/^} Local;$/;"	t	typeref:struct:__anon3	file:
+PREC_AND	compiler.c	/^    PREC_AND,         \/\/ and$/;"	e	enum:__anon6	file:
+PREC_ASSIGNMENT	compiler.c	/^    PREC_ASSIGNMENT,  \/\/ =$/;"	e	enum:__anon6	file:
+PREC_CALL	compiler.c	/^    PREC_CALL,        \/\/ . ()$/;"	e	enum:__anon6	file:
+PREC_COMPARISON	compiler.c	/^    PREC_COMPARISON,  \/\/ < > <= >=$/;"	e	enum:__anon6	file:
+PREC_EQUALITY	compiler.c	/^    PREC_EQUALITY,    \/\/ == !=$/;"	e	enum:__anon6	file:
+PREC_FACTOR	compiler.c	/^    PREC_FACTOR,      \/\/ * \/$/;"	e	enum:__anon6	file:
+PREC_NONE	compiler.c	/^    PREC_NONE,$/;"	e	enum:__anon6	file:
+PREC_OR	compiler.c	/^    PREC_OR,          \/\/ or$/;"	e	enum:__anon6	file:
+PREC_PRIMARY	compiler.c	/^    PREC_PRIMARY$/;"	e	enum:__anon6	file:
+PREC_TERM	compiler.c	/^    PREC_TERM,        \/\/ + -$/;"	e	enum:__anon6	file:
+PREC_UNARY	compiler.c	/^    PREC_UNARY,       \/\/ ! -$/;"	e	enum:__anon6	file:
+ParseFn	compiler.c	/^typedef void(*ParseFn)(bool canAssign);$/;"	t	file:
+ParseRule	compiler.c	/^} ParseRule;$/;"	t	typeref:struct:__anon7	file:
+Parser	compiler.c	/^} Parser;\/\/解析code$/;"	t	typeref:struct:__anon2	file:
+Precedence	compiler.c	/^} Precedence;$/;"	t	typeref:enum:__anon6	file:
+READ_BYTE	vm.c	/^#define READ_BYTE(/;"	d	file:
+READ_BYTE	vm.c	/^#undef READ_BYTE$/;"	d	file:
+READ_CONSTANT	vm.c	/^#define READ_CONSTANT(/;"	d	file:
+READ_CONSTANT	vm.c	/^#undef READ_CONSTANT$/;"	d	file:
+READ_SHORT	vm.c	/^#define READ_SHORT(/;"	d	file:
+READ_SHORT	vm.c	/^#undef READ_SHORT$/;"	d	file:
+READ_STRING	vm.c	/^#define READ_STRING(/;"	d	file:
+READ_STRING	vm.c	/^#undef READ_STRING$/;"	d	file:
+Scanner	scanner.c	/^} Scanner;$/;"	t	typeref:struct:__anon1	file:
+TABLE_MAX_LOAD	table.c	/^#define TABLE_MAX_LOAD /;"	d	file:
+TYPE_FUNCTION	compiler.c	/^    TYPE_FUNCTION,\/\/普通函数 $/;"	e	enum:__anon4	file:
+TYPE_SCRIPT	compiler.c	/^    TYPE_SCRIPT \/\/主函数$/;"	e	enum:__anon4	file:
+__anon1::current	scanner.c	/^  const char* current;\/\/指向正在扫描的字符位置 不断移动 直到识别出一个完整的token$/;"	m	struct:__anon1	file:	access:public
+__anon1::line	scanner.c	/^  int line;\/\/源代码行号  扫描整个文件 将整个的行号传递给token$/;"	m	struct:__anon1	file:	access:public
+__anon1::start	scanner.c	/^  const char* start;\/\/指向正在处理的token$/;"	m	struct:__anon1	file:	access:public
+__anon2::current	compiler.c	/^    Token current;$/;"	m	struct:__anon2	file:	access:public
+__anon2::hadError	compiler.c	/^    bool hadError;$/;"	m	struct:__anon2	file:	access:public
+__anon2::panicMode	compiler.c	/^    bool panicMode;\/\/防止出现级连效应$/;"	m	struct:__anon2	file:	access:public
+__anon2::previous	compiler.c	/^    Token previous;$/;"	m	struct:__anon2	file:	access:public
+__anon3::depth	compiler.c	/^    int depth;\/\/局部变量的深度$/;"	m	struct:__anon3	file:	access:public
+__anon3::name	compiler.c	/^    Token name;$/;"	m	struct:__anon3	file:	access:public
+__anon5::function	compiler.c	/^    ObjFunction* function;$/;"	m	struct:__anon5	file:	access:public
+__anon5::localCount	compiler.c	/^    int localCount;$/;"	m	struct:__anon5	file:	access:public
+__anon5::locals	compiler.c	/^    Local locals[UINT8_COUNT];\/\/局部变量$/;"	m	struct:__anon5	file:	access:public
+__anon5::scopeDepth	compiler.c	/^    int scopeDepth;\/\/局部作用域深度$/;"	m	struct:__anon5	file:	access:public
+__anon5::type	compiler.c	/^    FunctionType type;$/;"	m	struct:__anon5	file:	access:public
+__anon7::infix	compiler.c	/^    ParseFn infix;$/;"	m	struct:__anon7	file:	access:public
+__anon7::precedence	compiler.c	/^    Precedence precedence;$/;"	m	struct:__anon7	file:	access:public
+__anon7::prefix	compiler.c	/^    ParseFn prefix;$/;"	m	struct:__anon7	file:	access:public
+addConstant	chunk.c	/^int addConstant(Chunk* chunk, Value value) {$/;"	f	signature:(Chunk* chunk, Value value)
+addLocal	compiler.c	/^static void addLocal(Token name) {$/;"	f	file:	signature:(Token name)
+adjustCapacity	table.c	/^static void adjustCapacity(Table* table, int capacity) {$/;"	f	file:	signature:(Table* table, int capacity)
+advance	compiler.c	/^static void advance() {$/;"	f	file:
+advance	scanner.c	/^static char advance() {$/;"	f	file:
+allocateObject	object.c	/^static Obj* allocateObject(size_t size, ObjType type) {$/;"	f	file:	signature:(size_t size, ObjType type)
+allocateString	object.c	/^static ObjString* allocateString(char* chars, int length, uint32_t hash) {$/;"	f	file:	signature:(char* chars, int length, uint32_t hash)
+and_	compiler.c	/^static void and_(bool canAssign){$/;"	f	file:	signature:(bool canAssign)
+beginScope	compiler.c	/^static void beginScope() {$/;"	f	file:
+binary	compiler.c	/^static void binary(bool canAssign) {$/;"	f	file:	signature:(bool canAssign)
+block	compiler.c	/^static void block() {$/;"	f	file:
+byteInstruction	debug.c	/^static int byteInstruction(const char* name, Chunk* chunk,$/;"	f	file:	signature:(const char* name, Chunk* chunk, int offset)
+call	compiler.c	/^static void call(bool canAssign){}$/;"	f	file:	signature:(bool canAssign)
+check	compiler.c	/^static bool check(TokenType type) {$/;"	f	file:	signature:(TokenType type)
+checkKeyword	scanner.c	/^static TokenType checkKeyword(int start, int length,const char* rest, TokenType type) {$/;"	f	file:	signature:(int start, int length,const char* rest, TokenType type)
+compile	compiler.c	/^ObjFunction* compile(const char* source){$/;"	f	signature:(const char* source)
+compilingChunk	compiler.c	/^Chunk* compilingChunk;$/;"	v
+concatenate	vm.c	/^static void concatenate() {$/;"	f	file:
+constantInstruction	debug.c	/^static int constantInstruction(const char* name, Chunk* chunk,$/;"	f	file:	signature:(const char* name, Chunk* chunk, int offset)
+consume	compiler.c	/^static void consume(TokenType type, const char* message) {$/;"	f	file:	signature:(TokenType type, const char* message)
+copyString	object.c	/^ObjString* copyString(const char* chars, int length) {$/;"	f	signature:(const char* chars, int length)
+current	compiler.c	/^    Token current;$/;"	m	struct:__anon2	file:	access:public
+current	compiler.c	/^Compiler* current = NULL;$/;"	v
+current	scanner.c	/^  const char* current;\/\/指向正在扫描的字符位置 不断移动 直到识别出一个完整的token$/;"	m	struct:__anon1	file:	access:public
+currentChunk	compiler.c	/^static Chunk* currentChunk() {$/;"	f	file:
+declaration	compiler.c	/^static void declaration() {$/;"	f	file:
+declareVariable	compiler.c	/^static void declareVariable() {$/;"	f	file:
+defineVariable	compiler.c	/^static void defineVariable(uint8_t global) {$/;"	f	file:	signature:(uint8_t global)
+depth	compiler.c	/^    int depth;\/\/局部变量的深度$/;"	m	struct:__anon3	file:	access:public
+disassembleChunk	debug.c	/^void disassembleChunk(Chunk* chunk, const char* name) {$/;"	f	signature:(Chunk* chunk, const char* name)
+disassembleInstruction	debug.c	/^int disassembleInstruction(Chunk* chunk,int offset){$/;"	f	signature:(Chunk* chunk,int offset)
+dot	compiler.c	/^static void dot(bool canAssign){}$/;"	f	file:	signature:(bool canAssign)
+emitByte	compiler.c	/^static void emitByte(uint8_t byte) {$/;"	f	file:	signature:(uint8_t byte)
+emitBytes	compiler.c	/^static void emitBytes(uint8_t byte1, uint8_t byte2) {$/;"	f	file:	signature:(uint8_t byte1, uint8_t byte2)
+emitConstant	compiler.c	/^static void emitConstant(Value value) {$/;"	f	file:	signature:(Value value)
+emitJump	compiler.c	/^static int emitJump(uint8_t instruction) {$/;"	f	file:	signature:(uint8_t instruction)
+emitLoop	compiler.c	/^static void emitLoop(int loopStart) {$/;"	f	file:	signature:(int loopStart)
+emitReturn	compiler.c	/^static void emitReturn() {$/;"	f	file:
+endCompiler	compiler.c	/^static ObjFunction* endCompiler() {$/;"	f	file:
+endScope	compiler.c	/^static void endScope() {$/;"	f	file:
+error	compiler.c	/^static void error(const char* message) {$/;"	f	file:	signature:(const char* message)
+errorAt	compiler.c	/^static void errorAt(Token* token, const char* message) {$/;"	f	file:	signature:(Token* token, const char* message)
+errorAtCurrent	compiler.c	/^static void errorAtCurrent(const char* message) {$/;"	f	file:	signature:(const char* message)
+errorToken	scanner.c	/^static Token errorToken(const char* message) {$/;"	f	file:	signature:(const char* message)
+expression	compiler.c	/^static void expression() {$/;"	f	file:
+expressionStatement	compiler.c	/^static void expressionStatement() {$/;"	f	file:
+findEntry	table.c	/^static Entry* findEntry(Entry* entries, int capacity,$/;"	f	file:	signature:(Entry* entries, int capacity, ObjString* key)
+forStatement	compiler.c	/^static void forStatement() {$/;"	f	file:
+freeChunk	chunk.c	/^void freeChunk(Chunk* chunk) {$/;"	f	signature:(Chunk* chunk)
+freeObject	memory.c	/^static void freeObject(Obj* object) {$/;"	f	file:	signature:(Obj* object)
+freeObjects	memory.c	/^void freeObjects() {$/;"	f
+freeTable	table.c	/^void freeTable(Table* table) {$/;"	f	signature:(Table* table)
+freeVM	vm.c	/^void freeVM() {$/;"	f
+freeValueArray	value.c	/^void freeValueArray(ValueArray* array) {$/;"	f	signature:(ValueArray* array)
+function	compiler.c	/^    ObjFunction* function;$/;"	m	struct:__anon5	file:	access:public
+getRule	compiler.c	/^static ParseRule* getRule(TokenType type) {$/;"	f	file:	signature:(TokenType type)
+grouping	compiler.c	/^static void grouping(bool canAssign) {$/;"	f	file:	signature:(bool canAssign)
+hadError	compiler.c	/^    bool hadError;$/;"	m	struct:__anon2	file:	access:public
+hashString	object.c	/^static uint32_t hashString(const char* key, int length) {$/;"	f	file:	signature:(const char* key, int length)
+identifier	scanner.c	/^static Token identifier() {$/;"	f	file:
+identifierConstant	compiler.c	/^static uint8_t identifierConstant(Token* name) {$/;"	f	file:	signature:(Token* name)
+identifierType	scanner.c	/^static TokenType identifierType() {$/;"	f	file:
+identifiersEqual	compiler.c	/^static bool identifiersEqual(Token* a, Token* b) {$/;"	f	file:	signature:(Token* a, Token* b)
+ifStatement	compiler.c	/^static void ifStatement() {$/;"	f	file:
+infix	compiler.c	/^    ParseFn infix;$/;"	m	struct:__anon7	file:	access:public
+initChunk	chunk.c	/^void initChunk(Chunk* chunk) {$/;"	f	signature:(Chunk* chunk)
+initCompiler	compiler.c	/^static void initCompiler(Compiler* compiler, FunctionType type) {$/;"	f	file:	signature:(Compiler* compiler, FunctionType type)
+initScanner	scanner.c	/^void initScanner(const char* source) {$/;"	f	signature:(const char* source)
+initTable	table.c	/^void initTable(Table* table){$/;"	f	signature:(Table* table)
+initVM	vm.c	/^void initVM() {$/;"	f
+initValueArray	value.c	/^void initValueArray(ValueArray* array) {$/;"	f	signature:(ValueArray* array)
+interpret	vm.c	/^InterpretResult interpret(const char* source) {$/;"	f	signature:(const char* source)
+isAlpha	scanner.c	/^static bool isAlpha(char c) {$/;"	f	file:	signature:(char c)
+isAtEnd	scanner.c	/^static bool isAtEnd() {$/;"	f	file:
+isDigit	scanner.c	/^static bool isDigit(char c) {$/;"	f	file:	signature:(char c)
+isFalsey	vm.c	/^static bool isFalsey(Value value) {$/;"	f	file:	signature:(Value value)
+jumpInstruction	debug.c	/^static int jumpInstruction(const char* name, int sign,$/;"	f	file:	signature:(const char* name, int sign, Chunk* chunk, int offset)
+line	scanner.c	/^  int line;\/\/源代码行号  扫描整个文件 将整个的行号传递给token$/;"	m	struct:__anon1	file:	access:public
+literal	compiler.c	/^static void literal(bool canAssign) {$/;"	f	file:	signature:(bool canAssign)
+localCount	compiler.c	/^    int localCount;$/;"	m	struct:__anon5	file:	access:public
+locals	compiler.c	/^    Local locals[UINT8_COUNT];\/\/局部变量$/;"	m	struct:__anon5	file:	access:public
+makeConstant	compiler.c	/^uint8_t makeConstant(Value value){$/;"	f	signature:(Value value)
+makeToken	scanner.c	/^static Token makeToken(TokenType type) {$/;"	f	file:	signature:(TokenType type)
+markInitialized	compiler.c	/^static void markInitialized() {$/;"	f	file:
+match	compiler.c	/^static bool match(TokenType type) {$/;"	f	file:	signature:(TokenType type)
+match	scanner.c	/^static bool match(char c){$/;"	f	file:	signature:(char c)
+name	compiler.c	/^    Token name;$/;"	m	struct:__anon3	file:	access:public
+namedVariable	compiler.c	/^static void namedVariable(Token name, bool canAssign) {$/;"	f	file:	signature:(Token name, bool canAssign)
+newFunction	object.c	/^ObjFunction* newFunction() {$/;"	f
+number	compiler.c	/^static void number(bool canAssign) {$/;"	f	file:	signature:(bool canAssign)
+number	scanner.c	/^static Token number() {$/;"	f	file:
+or_	compiler.c	/^static void or_(bool canAssign){$/;"	f	file:	signature:(bool canAssign)
+panicMode	compiler.c	/^    bool panicMode;\/\/防止出现级连效应$/;"	m	struct:__anon2	file:	access:public
+parsePrecedence	compiler.c	/^static void parsePrecedence(Precedence precedence) {$/;"	f	file:	signature:(Precedence precedence)
+parseVariable	compiler.c	/^static uint8_t parseVariable(const char* errorMessage) {$/;"	f	file:	signature:(const char* errorMessage)
+parser	compiler.c	/^Parser parser;$/;"	v
+patchJump	compiler.c	/^static void patchJump(int offset) {$/;"	f	file:	signature:(int offset)
+peek	scanner.c	/^static char peek() {$/;"	f	file:
+peek	vm.c	/^static Value peek(int distance) {$/;"	f	file:	signature:(int distance)
+peekNext	scanner.c	/^static char peekNext() {$/;"	f	file:
+pop	vm.c	/^Value pop(){$/;"	f
+precedence	compiler.c	/^    Precedence precedence;$/;"	m	struct:__anon7	file:	access:public
+prefix	compiler.c	/^    ParseFn prefix;$/;"	m	struct:__anon7	file:	access:public
+previous	compiler.c	/^    Token previous;$/;"	m	struct:__anon2	file:	access:public
+printFunction	object.c	/^static void printFunction(ObjFunction* function) {$/;"	f	file:	signature:(ObjFunction* function)
+printObject	object.c	/^void printObject(Value value){$/;"	f	signature:(Value value)
+printStatement	compiler.c	/^static void printStatement() {$/;"	f	file:
+printValue	value.c	/^void printValue(Value value) {$/;"	f	signature:(Value value)
+push	vm.c	/^void push(Value value) {$/;"	f	signature:(Value value)
+reallocate	memory.c	/^void* reallocate(void* pointer,size_t oldSize,size_t newSize){$/;"	f	signature:(void* pointer,size_t oldSize,size_t newSize)
+resetStack	vm.c	/^static void resetStack() {$/;"	f	file:
+resolveLocal	compiler.c	/^static int resolveLocal(Compiler* compiler, Token* name) {$/;"	f	file:	signature:(Compiler* compiler, Token* name)
+rules	compiler.c	/^ParseRule rules[] = {$/;"	v
+run	vm.c	/^static InterpretResult run() {$/;"	f	file:
+runtimeError	vm.c	/^static void runtimeError(const char* format, ...) {$/;"	f	file:	signature:(const char* format, ...)
+scanToken	scanner.c	/^Token scanToken() {$/;"	f
+scanner	scanner.c	/^Scanner scanner;$/;"	v
+scopeDepth	compiler.c	/^    int scopeDepth;\/\/局部作用域深度$/;"	m	struct:__anon5	file:	access:public
+simpleInstruction	debug.c	/^static int simpleInstruction(const char* name, int offset) {$/;"	f	file:	signature:(const char* name, int offset)
+skipWhitespace	scanner.c	/^static void skipWhitespace() {$/;"	f	file:
+start	scanner.c	/^  const char* start;\/\/指向正在处理的token$/;"	m	struct:__anon1	file:	access:public
+statement	compiler.c	/^static void statement() {$/;"	f	file:
+string	compiler.c	/^static void string(bool canAssign) {$/;"	f	file:	signature:(bool canAssign)
+string	scanner.c	/^static Token string(){$/;"	f	file:
+super_	compiler.c	/^static void super_(bool canAssign){}$/;"	f	file:	signature:(bool canAssign)
+synchronize	compiler.c	/^static void synchronize() {$/;"	f	file:
+tableAddAll	table.c	/^void tableAddAll(Table* from, Table* to) {$/;"	f	signature:(Table* from, Table* to)
+tableDelete	table.c	/^bool tableDelete(Table* table, ObjString* key) {$/;"	f	signature:(Table* table, ObjString* key)
+tableFindString	table.c	/^ObjString* tableFindString(Table* table, const char* chars,$/;"	f	signature:(Table* table, const char* chars, int length, uint32_t hash)
+tableGet	table.c	/^bool tableGet(Table* table, ObjString* key, Value* value) {$/;"	f	signature:(Table* table, ObjString* key, Value* value)
+tableSet	table.c	/^bool tableSet(Table* table, ObjString* key, Value value) {$/;"	f	signature:(Table* table, ObjString* key, Value value)
+takeString	object.c	/^ObjString* takeString(char* chars, int length) {$/;"	f	signature:(char* chars, int length)
+this_	compiler.c	/^static void this_(bool canAssign){}$/;"	f	file:	signature:(bool canAssign)
+type	compiler.c	/^    FunctionType type;$/;"	m	struct:__anon5	file:	access:public
+unary	compiler.c	/^static void unary(bool canAssign) {$/;"	f	file:	signature:(bool canAssign)
+valuesEqual	value.c	/^bool valuesEqual(Value a, Value b) {$/;"	f	signature:(Value a, Value b)
+varDeclaration	compiler.c	/^static void varDeclaration() {$/;"	f	file:
+variable	compiler.c	/^static void variable(bool canAssign) {$/;"	f	file:	signature:(bool canAssign)
+vm	vm.c	/^VM vm;\/\/全局变量$/;"	v
+whileStatement	compiler.c	/^static void whileStatement() {$/;"	f	file:
+writeChunk	chunk.c	/^void writeChunk(Chunk* chunk,uint8_t byte,int line){$/;"	f	signature:(Chunk* chunk,uint8_t byte,int line)
+writeValueArray	value.c	/^void writeValueArray(ValueArray* array, Value value) {$/;"	f	signature:(ValueArray* array, Value value)

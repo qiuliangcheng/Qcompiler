@@ -1,8 +1,0 @@
-/home/qlc/my_compiler/build/CMakeFiles/edit_cache.dir
-/home/qlc/my_compiler/build/CMakeFiles/rebuild_cache.dir
-/home/qlc/my_compiler/build/src/CMakeFiles/qlc.dir
-/home/qlc/my_compiler/build/src/CMakeFiles/edit_cache.dir
-/home/qlc/my_compiler/build/src/CMakeFiles/rebuild_cache.dir
-/home/qlc/my_compiler/build/test/CMakeFiles/test.dir
-/home/qlc/my_compiler/build/test/CMakeFiles/edit_cache.dir
-/home/qlc/my_compiler/build/test/CMakeFiles/rebuild_cache.dir
