@@ -35,9 +35,9 @@ typedef enum{
     OP_LOOP,
     OP_CALL,
     OP_INVOKE,//优化方法调用 比如class.method() 直接运行
-    
+    OP_CLOSURE,
     OP_SUPER_INVOKE,//超类方法的优化调用
-    OP_CLOSE_OPVALUE,
+    OP_CLOSE_UPVALUE,
     OP_RETURN,
     OP_CLASS,
     OP_INHERIT,//继承

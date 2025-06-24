@@ -15,7 +15,7 @@
 #define FRAMES_MAX 64
 #define STACK_MAX (FRAMES_MAX * UINT8_COUNT)
 typedef struct {
-  ObjFunction* function;
+  ObjClosure* closure;
   uint8_t* ip;
   Value* slots;//指向函数里第一个变量的名称
 } CallFrame;//一个CallFrame代表一个正在进行的函数调用
@@ -29,6 +29,7 @@ typedef struct {
   Table strings;
   Table globals;
   Obj* objects;
+  ObjUpvalue* openUpvalues;
 } VM;
 extern VM vm;
 typedef enum {

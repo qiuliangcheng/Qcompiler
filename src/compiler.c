@@ -22,16 +22,22 @@ typedef struct {
 typedef struct {
     Token name;
     int depth;//局部变量的深度
+    bool isCaptured;//是否被闭包捕获
 } Local;
+typedef struct {
+    uint8_t index;
+    bool isLocal;
+} Upvalue;
 typedef enum {
     TYPE_FUNCTION,//普通函数 
     TYPE_SCRIPT //主函数
 } FunctionType;
-typedef struct {
+typedef struct Compiler{
     struct Compiler* enclosing;//上一个compiler
     ObjFunction* function;
     FunctionType type;
     Local locals[UINT8_COUNT];//局部变量
+    Upvalue upvalues[UINT8_COUNT];
     int localCount;
     int scopeDepth;//局部作用域深度
 } Compiler;
@@ -138,6 +144,7 @@ static void initCompiler(Compiler* compiler, FunctionType type) {
     }
     Local* local = &current->locals[current->localCount++];
     local->depth = 0;//编译器隐式地要求栈槽0供虚拟机自己内部使用  槽0固定
+    local->isCaptured = false;
     local->name.start = "";
     local->name.length = 0;
 }
@@ -349,7 +356,39 @@ static int resolveLocal(Compiler* compiler, Token* name) {
 
     return -1;
 }
+//isLocal 是否在上一层
+static int addUpvalue(Compiler* compiler, uint8_t index, bool isLocal) {
+    int upvalueCount = compiler->function->upvalueCount;
+    for (int i = 0; i < upvalueCount; i++) {
+        Upvalue* upvalue = &compiler->upvalues[i];
+        if (upvalue->index == index && upvalue->isLocal == isLocal) {
+            return i;
+        }
+    }
+    if (upvalueCount == UINT8_COUNT) {
+        error("Too many closure variables in function.");
+        return 0;
+    }
+    compiler->upvalues[upvalueCount].isLocal = isLocal;
+    compiler->upvalues[upvalueCount].index = index;
+    return compiler->function->upvalueCount++;
+}
 
+
+static int resolveUpvalue(Compiler* compiler, Token* name) {
+    if (compiler->enclosing == NULL) return -1;
+
+    int local = resolveLocal(compiler->enclosing, name);//查看这个变量在上一个的第几个变量位置 可以理解成是外层的第几个栈位置
+    if (local != -1) {
+        compiler->enclosing->locals[local].isCaptured = true;
+        return addUpvalue(compiler, (uint8_t)local, true);
+    }
+    int upvalue = resolveUpvalue(compiler->enclosing, name);
+    if (upvalue != -1) {
+        return addUpvalue(compiler, (uint8_t)upvalue, false);
+    }
+    return -1;
+}
 
 static void namedVariable(Token name, bool canAssign) {
     uint8_t getOp, setOp;
@@ -357,7 +396,10 @@ static void namedVariable(Token name, bool canAssign) {
     if (arg != -1) {
         getOp = OP_GET_LOCAL;
         setOp = OP_SET_LOCAL;
-    } else {
+    }else if ((arg = resolveUpvalue(current, &name)) != -1) {
+        getOp = OP_GET_UPVALUE;
+        setOp = OP_SET_UPVALUE;
+    }else {
         arg = identifierConstant(&name);
         getOp = OP_GET_GLOBAL;
         setOp = OP_SET_GLOBAL;
@@ -365,7 +407,7 @@ static void namedVariable(Token name, bool canAssign) {
     if (canAssign&&match(TOKEN_EQUAL)) {
         expression();
         emitBytes(setOp, (uint8_t)arg);//local里的值
-    } else {
+    }else {
         emitBytes(getOp, (uint8_t)arg);
     }
 
@@ -419,6 +461,7 @@ static void addLocal(Token name) {
     Local* local = &current->locals[current->localCount++];
     local->name = name;
     local->depth = -1;//这个只是声明
+    local->isCaptured = false;
 }
 static void declareVariable() {
     if (current->scopeDepth == 0) return;
@@ -452,7 +495,11 @@ static void endScope() {
     while (current->localCount > 0 &&
          current->locals[current->localCount - 1].depth >
             current->scopeDepth) {
-        emitByte(OP_POP);
+        if (current->locals[current->localCount - 1].isCaptured) {
+            emitByte(OP_CLOSE_UPVALUE);
+        } else {
+            emitByte(OP_POP);
+        }
         current->localCount--;
     }
 }
@@ -579,7 +626,7 @@ static void function(FunctionType type) {
         do {
             current->function->arity++;
             if (current->function->arity > 255) {
-            errorAtCurrent("Can't have more than 255 parameters.");
+                errorAtCurrent("Can't have more than 255 parameters.");
             }
             uint8_t constant = parseVariable("Expect parameter name.");
             defineVariable(constant);
@@ -589,7 +636,13 @@ static void function(FunctionType type) {
     consume(TOKEN_LEFT_BRACE, "Expect '{' before function body.");
     block();
     ObjFunction* function = endCompiler();
-    emitBytes(OP_CONSTANT, makeConstant(OBJ_VAL(function)));//函数加到常量表中
+    emitBytes(OP_CLOSURE, makeConstant(OBJ_VAL(function)));
+    //emitBytes(OP_CONSTANT, makeConstant(OBJ_VAL(function)));//函数加到常量表中
+    //value hasValue index hasValue index; define funname
+    for (int i = 0; i < function->upvalueCount; i++) {
+        emitByte(compiler.upvalues[i].isLocal ? 1 : 0);
+        emitByte(compiler.upvalues[i].index);
+    }    
 }
 
 

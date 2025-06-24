@@ -22,7 +22,8 @@
 #define AS_NATIVE(value) \
     (((ObjNative*)AS_OBJ(value))->function)
 
-
+#define IS_CLOSURE(value)      isObjType(value, OBJ_CLOSURE)
+#define AS_CLOSURE(value)      ((ObjClosure*)AS_OBJ(value))
 
 typedef enum {
     OBJ_BOUND_METHOD,
@@ -49,11 +50,26 @@ struct ObjString {
 typedef struct {
     Obj obj;
     int arity;
+    int upvalueCount;
     Chunk chunk;
     ObjString* name;
 } ObjFunction;
-//本地函数——可以从Lox调用，但是使用C语言实现
 
+typedef struct ObjUpvalue {
+    Obj obj;
+    Value* location;//这是一个指向Value的指针,不是Value本身
+    struct ObjUpvalue* next;
+    Value closed;
+} ObjUpvalue;
+typedef struct {
+    Obj obj;
+    ObjFunction* function;
+    ObjUpvalue** upvalues;//upvalue数组
+    int upvalueCount;
+} ObjClosure;
+
+ObjUpvalue* newUpvalue(Value* slot);
+//本地函数——可以从Lox调用，但是使用C语言实现
 typedef Value (*NativeFn)(int argCount, Value* args);
 typedef struct {
   Obj obj;
@@ -61,6 +77,7 @@ typedef struct {
 } ObjNative;
 ObjNative* newNative(NativeFn function);
 ObjFunction* newFunction();
+ObjClosure* newClosure(ObjFunction* function);
 ObjString* takeString(char* chars, int length);
 ObjString* copyString(const char* chars, int length);
 void printObject(Value value);
