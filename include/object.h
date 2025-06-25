@@ -32,6 +32,9 @@
 #define IS_INSTANCE(value)     isObjType(value, OBJ_INSTANCE)
 #define AS_INSTANCE(value)     ((ObjInstance*)AS_OBJ(value))
 
+#define IS_BOUND_METHOD(value) isObjType(value, OBJ_BOUND_METHOD)
+#define AS_BOUND_METHOD(value) ((ObjBoundMethod*)AS_OBJ(value))
+
 typedef enum {
     OBJ_BOUND_METHOD,
     OBJ_CLASS,
@@ -94,13 +97,23 @@ typedef struct {
     Table fields; //hash表 存储类变量以及函数
 } ObjInstance;
 
+typedef struct {
+    Obj obj;
+    Value receiver;//方法只能在ObjInstances上调用  谁进行调用的什么方法
+    ObjClosure* method;
+} ObjBoundMethod;
+
+
 ObjNative* newNative(NativeFn function);
 ObjFunction* newFunction();
 ObjClosure* newClosure(ObjFunction* function);
 ObjClass* newClass(ObjString* name);
+ObjBoundMethod* newBoundMethod(Value receiver,ObjClosure* method);
 ObjInstance* newInstance(ObjClass* klass);
 ObjString* takeString(char* chars, int length);
 ObjString* copyString(const char* chars, int length);
+
+
 void printObject(Value value);
 
 static inline bool isObjType(Value value, ObjType type) {

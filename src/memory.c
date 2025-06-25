@@ -71,6 +71,9 @@ static void freeObject(Obj* object) {
             FREE(ObjClass, object);
             break;
         }
+        case OBJ_BOUND_METHOD:
+            FREE(ObjBoundMethod, object);
+            break;
         case OBJ_INSTANCE: {
             ObjInstance* instance = (ObjInstance*)object;
             freeTable(&instance->fields);
@@ -127,8 +130,9 @@ static void markRoots() {
         markObject((Obj*)upvalue);
     }
 
-     markTable(&vm.globals);//标记全局变量
-     markCompilerRoots();//编译器会定期从堆中获取内存 存储字面量和常量表 在编译期间进行分配的话 也需要进行标记
+    markTable(&vm.globals);//标记全局变量
+    markCompilerRoots();//编译器会定期从堆中获取内存 存储字面量和常量表 在编译期间进行分配的话 也需要进行标记
+    markObject((Obj*)vm.initString);
 }
 static void markArray(ValueArray* array) {
     for (int i = 0; i < array->count; i++) {
@@ -155,6 +159,12 @@ static void blackenObject(Obj* object) {
             ObjFunction* function = (ObjFunction*)object;
             markObject((Obj*)function->name);
             markArray(&function->chunk.constants);
+            break;
+        }
+        case OBJ_BOUND_METHOD: {
+            ObjBoundMethod* bound = (ObjBoundMethod*)object;
+            markValue(bound->receiver);
+            markObject((Obj*)bound->method);
             break;
         }
         case OBJ_UPVALUE:

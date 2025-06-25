@@ -31,6 +31,8 @@ typedef struct {
 } Upvalue;
 typedef enum {
     TYPE_FUNCTION,//普通函数 
+    TYPE_METHOD,
+    TYPE_INITIALIZER,
     TYPE_SCRIPT //主函数
 } FunctionType;
 typedef struct Compiler{
@@ -42,9 +44,12 @@ typedef struct Compiler{
     int localCount;
     int scopeDepth;//局部作用域深度
 } Compiler;
-
+typedef struct ClassCompiler {
+    struct ClassCompiler* enclosing;
+} ClassCompiler;
 Parser parser;
 Compiler* current = NULL;
+ClassCompiler* currentClass = NULL;
 Chunk* compilingChunk;
 typedef enum {
     PREC_NONE,
@@ -132,6 +137,7 @@ static Chunk* currentChunk() {
 }
 
 static void initCompiler(Compiler* compiler, FunctionType type) {
+    //每一个普通的method 初始都是this
     compiler->enclosing = current;
     compiler->function = NULL;
     compiler->type = type;
@@ -146,8 +152,13 @@ static void initCompiler(Compiler* compiler, FunctionType type) {
     Local* local = &current->locals[current->localCount++];
     local->depth = 0;//编译器隐式地要求栈槽0供虚拟机自己内部使用  槽0固定
     local->isCaptured = false;
-    local->name.start = "";
-    local->name.length = 0;
+    if (type != TYPE_FUNCTION) {
+        local->name.start = "this";
+        local->name.length = 4;
+    } else {
+        local->name.start = "";
+        local->name.length = 0;
+    }
 }
 
 static void errorAt(Token* token, const char* message) {
@@ -216,9 +227,19 @@ static void expressionStatement() {
     consume(TOKEN_SEMICOLON, "Expect ';' after expression.");
     emitByte(OP_POP);//放栈上 然后取出 每一个表达式完都要保证栈的清空
 }
-
+static void emitBytes(uint8_t byte1, uint8_t byte2) {
+    emitByte(byte1);
+    emitByte(byte2);
+}//遇到常量的时候
 static void emitReturn() {
-    emitByte(OP_NIL);//隐式子返回
+    //emitByte(OP_NIL);//隐式子返回
+
+    if (current->type == TYPE_INITIALIZER) {
+        emitBytes(OP_GET_LOCAL, 0);//槽0 不就是this吗
+    } else {
+        emitByte(OP_NIL);
+    }
+
     emitByte(OP_RETURN);
 }
 static ObjFunction* endCompiler() {
@@ -236,10 +257,7 @@ static ObjFunction* endCompiler() {
 static ParseRule* getRule(TokenType type) {
     return &rules[type];
 }
-static void emitBytes(uint8_t byte1, uint8_t byte2) {
-    emitByte(byte1);
-    emitByte(byte2);
-}//遇到常量的时候
+
 uint8_t makeConstant(Value value){
     int constant=addConstant(currentChunk(),value);
     if(constant>=UINT8_MAX){
@@ -333,7 +351,9 @@ static void and_(bool canAssign){
 
 }
 static uint8_t identifierConstant(Token* name) {
-  return makeConstant(OBJ_VAL(copyString(name->start, name->length)));
+    ObjString *m=copyString(name->start, name->length);
+    //printf("TOKENname %s %p\n",m->chars,m);
+    return makeConstant(OBJ_VAL(copyString(name->start, name->length)));
 }
 
 static void dot(bool canAssign){
@@ -343,7 +363,11 @@ static void dot(bool canAssign){
     if (canAssign && match(TOKEN_EQUAL)) {
         expression();
         emitBytes(OP_SET_PROPERTY, name);
-    } else {
+    }  else if (match(TOKEN_LEFT_PAREN)) {
+        uint8_t argCount = argumentList();
+        emitBytes(OP_INVOKE, name);//arg invoke name count
+        emitByte(argCount);
+    }else {    
         emitBytes(OP_GET_PROPERTY, name);
     }
 }
@@ -426,9 +450,17 @@ static void namedVariable(Token name, bool canAssign) {
 
 }
 static void variable(bool canAssign) {
-    namedVariable(parser.previous, canAssign);
+    namedVariable(parser.previous, canAssign);//this
 }
-static void this_(bool canAssign){}
+
+//遇到this的时候 第一个this是再类里面 去寻找类里面的this
+static void this_(bool canAssign) {
+    if (currentClass == NULL) {
+        error("Can't use 'this' outside of a class.");
+        return;
+    }
+    variable(false);
+} 
 static void super_(bool canAssign){}
 
 
@@ -580,9 +612,9 @@ static void defineVariable(uint8_t global) {
 
 static void varDeclaration() {
     uint8_t global = parseVariable("Expect variable name.");//名字在常量表中的索引
-    printf("val\n");
+    //printf("val\n");
     if (match(TOKEN_EQUAL)) {
-        printf("express\n");
+        //printf("express\n");
         expression();
     } else {
         emitByte(OP_NIL);
@@ -672,6 +704,10 @@ static void returnStatement() {
     if (match(TOKEN_SEMICOLON)) {
         emitReturn();//隐式返回
     } else {
+        //初始化函数不能返回
+        if (current->type == TYPE_INITIALIZER) {
+            error("Can't return a value from an initializer.");
+        }
         expression();
         consume(TOKEN_SEMICOLON, "Expect ';' after return value.");
         emitByte(OP_RETURN);
@@ -726,23 +762,38 @@ static void synchronize() {
 }
 
 static void method() {
-    consume(TOKEN_IDENTIFIER, "Expect method name.");
+    consume(TOKEN_IDENTIFIER, "Expect method name.");//方法名字
+    
     uint8_t constant = identifierConstant(&parser.previous);
+    FunctionType type = TYPE_METHOD;
+    if (parser.previous.length == 4 &&
+        memcmp(parser.previous.start, "init", 4) == 0) {
+        type = TYPE_INITIALIZER;
+    }
+    function(type);
     emitBytes(OP_METHOD, constant);
 }
 
 static void classDeclaration() {
     consume(TOKEN_IDENTIFIER, "Expect class name.");
+    Token className = parser.previous;
     uint8_t nameConstant = identifierConstant(&parser.previous);//放到常量表
     declareVariable();
 
     emitBytes(OP_CLASS, nameConstant);
     defineVariable(nameConstant);//定义到全局表中
+    ClassCompiler classCompiler;
+    classCompiler.enclosing = currentClass;
+    currentClass = &classCompiler;
+    namedVariable(className, false);//方法名要获取类名字
     consume(TOKEN_LEFT_BRACE, "Expect '{' before class body.");
     while (!check(TOKEN_RIGHT_BRACE) && !check(TOKEN_EOF)) {
         method();
     }
     consume(TOKEN_RIGHT_BRACE, "Expect '}' after class body.");
+    //执行每一条OP_METHOD指令时，栈顶是方法的闭包，它下面就是类
+    emitByte(OP_POP);//类名字弹出
+    currentClass = currentClass->enclosing;
 }
 
 static void declaration() {

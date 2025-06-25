@@ -31,6 +31,7 @@ static void defineNative(const char* name, NativeFn function) {
 
 void freeVM() {
     freeObjects();
+    vm.initString = NULL;
     freeTable(&vm.globals);
     freeTable(&vm.strings);
 }
@@ -57,12 +58,14 @@ void initVM() {
     vm.objects = NULL;
     vm.frameCount = 0;
     vm.openUpvalues = NULL;
+    vm.initString = NULL;
     vm.grayCount = 0;
     vm.grayCapacity = 0;
     vm.grayStack = NULL;
     vm.bytesAllocated = 0;
     vm.nextGC = 1024 * 1024;
     initTable(&vm.strings);
+    vm.initString = copyString("init", 4);
     initTable(&vm.globals);
     defineNative("clock", clockNative);
 }
@@ -123,7 +126,19 @@ static bool callValue(Value callee, int argCount) {
             case OBJ_CLASS: { //再本身类的位置创建示例
                 ObjClass* klass = AS_CLASS(callee);
                 vm.stackTop[-argCount - 1] = OBJ_VAL(newInstance(klass));
+                Value initializer;
+                if (tableGet(&klass->methods, vm.initString, &initializer)) {
+                    return call(AS_CLOSURE(initializer), argCount);
+                } else if (argCount != 0) {
+                    runtimeError("Expected 0 arguments but got %d.",argCount);
+                    return false;
+                }
                 return true;
+            }
+            case OBJ_BOUND_METHOD: {
+                ObjBoundMethod* bound = AS_BOUND_METHOD(callee);
+                vm.stackTop[-argCount - 1] = bound->receiver;//我槽0放入一个接收器
+                return call(bound->method, argCount);
             }
             default:
                 break; 
@@ -132,6 +147,24 @@ static bool callValue(Value callee, int argCount) {
     runtimeError("Can only call functions and classes.");
     return false;
 }
+
+//类
+static bool bindMethod(ObjClass* klass, ObjString* name) {
+    Value method;
+    if (!tableGet(&klass->methods, name, &method)) {
+        runtimeError("Undefined property '%s'.", name->chars);
+        return false;
+    }
+
+    ObjBoundMethod* bound = newBoundMethod(peek(0), //实例：peek(0)
+                                            AS_CLOSURE(method));
+    pop();//实例取出
+    push(OBJ_VAL(bound));//放到栈顶
+    return true;
+}
+
+
+
 static ObjUpvalue* captureUpvalue(Value* local) {
     
     ObjUpvalue* prevUpvalue = NULL;
@@ -184,6 +217,43 @@ static void concatenate() {
     push(OBJ_VAL(result));
 }
 
+// var closure = instance.method;
+// closure(argument);  可以分开
+static void defineMethod(ObjString* name) {
+    //printf("name %p initname %p \n",name,vm.initString);
+    Value method = peek(0);////函数方法
+    ObjClass* klass = AS_CLASS(peek(1));
+    // printf("method\n");
+    // printf("%s\n",name->chars);
+    tableSet(&klass->methods, name, method);
+    //2025.6.25 name与initstring不一样
+    pop();//方法去除
+}
+
+static bool invokeFromClass(ObjClass* klass, ObjString* name,
+                            int argCount) {
+    Value method;
+    if (!tableGet(&klass->methods, name, &method)) {
+        runtimeError("Undefined property '%s'.", name->chars);
+        return false;
+    }
+    return call(AS_CLOSURE(method), argCount);
+}
+
+static bool invoke(ObjString* name, int argCount) {
+    Value receiver = peek(argCount);
+    if (!IS_INSTANCE(receiver)) {
+        runtimeError("Only instances have methods.");
+        return false;
+    }
+    ObjInstance* instance = AS_INSTANCE(receiver);
+    Value value;
+    if(!tableGet(&instance->fields,name,&value)){
+        vm.stackTop[-argCount - 1] = value;
+        return callValue(value, argCount);
+    }
+    return invokeFromClass(instance->klass, name, argCount);
+}
 
 static InterpretResult run() {
 CallFrame* frame = &vm.frames[vm.frameCount - 1];
@@ -295,8 +365,10 @@ CallFrame* frame = &vm.frames[vm.frameCount - 1];
                     push(value);
                     break;
                 }
-                runtimeError("Undefined property '%s'.", name->chars);
-                return INTERPRET_RUNTIME_ERROR;
+                if (!bindMethod(instance->klass, name)) {
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                break;
             }
             case OP_SET_PROPERTY: {
                 if (!IS_INSTANCE(peek(1))) {
@@ -338,7 +410,7 @@ CallFrame* frame = &vm.frames[vm.frameCount - 1];
             }
             case OP_GET_LOCAL: {
                 uint8_t slot = READ_BYTE();
-                push(frame->slots[slot]);
+                push(frame->slots[slot]);//如果使用init的话变为了示例
                 break;
             }
             case OP_SET_LOCAL: {
@@ -351,6 +423,20 @@ CallFrame* frame = &vm.frames[vm.frameCount - 1];
                 if (isFalsey(peek(0))) frame->ip += offset;
                 break;
             }
+            case OP_INVOKE: //invoke name count
+                ObjString* method = READ_STRING();
+                int argCount = READ_BYTE();
+                if (!invoke(method, argCount)) {
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                frame = &vm.frames[vm.frameCount - 1];
+                break;
+            case OP_METHOD:
+                ObjString* s=READ_STRING();
+
+                //printf("OP_Method %s %p\n",s->chars,s);
+                defineMethod(s);
+                break;
             case OP_LOOP: {
                 uint16_t offset = READ_SHORT();
                 frame->ip -= offset;

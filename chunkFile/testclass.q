@@ -1,4 +1,9 @@
-class func{}
-var f=func();
-print f.name="class fun";
-print f.name;
+class Brunch {
+  init(food, drink) {
+    this.food=food;
+    this.drink=drink;
+  }
+}
+
+var b=Brunch("eggs", "coffee");
+print b.food+"喝的"+b.drink;

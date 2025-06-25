@@ -35,6 +35,7 @@ typedef struct {
     Obj** grayStack;
     size_t bytesAllocated;//分配字节
     size_t nextGC;//垃圾回收触发器 越多触发的越晚
+    ObjString* initString;
 } VM;
 extern VM vm;
 typedef enum {

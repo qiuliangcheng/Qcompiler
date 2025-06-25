@@ -51,7 +51,10 @@ static uint32_t hashString(const char* key, int length) {
 ObjString* copyString(const char* chars, int length) {
     uint32_t hash = hashString(chars, length);
     ObjString* interned = tableFindString(&vm.strings, chars, length, hash);
-    if (interned != NULL) return interned;
+    if (interned != NULL) {
+        //printf("copyString %s %p\n", interned->chars,interned);
+        return interned;
+    }
 
     char* heapChars = ALLOCATE(char, length + 1);
 
@@ -90,6 +93,9 @@ void printObject(Value value){
             break;
         case OBJ_INSTANCE:
             printf("%s instance", AS_INSTANCE(value)->klass->name->chars);
+            break;
+        case OBJ_BOUND_METHOD:
+            printFunction(AS_BOUND_METHOD(value)->method->function);
             break;
         default:
             break;
@@ -151,4 +157,13 @@ ObjInstance* newInstance(ObjClass* klass) {
     instance->klass = klass;
     initTable(&instance->fields);
     return instance;
+}
+
+
+ObjBoundMethod* newBoundMethod(Value receiver, ObjClosure* method) {
+  ObjBoundMethod* bound = ALLOCATE_OBJ(ObjBoundMethod,
+                                       OBJ_BOUND_METHOD);
+  bound->receiver = receiver;
+  bound->method = method;
+  return bound;
 }
