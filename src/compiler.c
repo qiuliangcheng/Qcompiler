@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include "debug.h"
 #include "chunk.h"
+#include "memory.h"
 #include <string.h>
 typedef struct {
     Token current;
@@ -770,5 +771,13 @@ ObjFunction* compile(const char* source){
     }
     ObjFunction* function = endCompiler();
     return parser.hadError ? NULL : function;
+}
+
+void markCompilerRoots() {
+    Compiler* compiler = current;//在每一个函数里可能都要进行分配内存
+    while (compiler != NULL) {
+        markObject((Obj*)compiler->function);
+        compiler = compiler->enclosing;
+    }
 }
 

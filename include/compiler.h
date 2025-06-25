@@ -10,4 +10,5 @@
 #include "chunk.h"
 #include "object.h"
 ObjFunction* compile(const char* source);
+void markCompilerRoots();
 #endif

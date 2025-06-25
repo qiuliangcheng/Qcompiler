@@ -10,6 +10,7 @@
 
 #include "chunk.h"
 #include "memory.h"
+#include "vm.h"
 void initChunk(Chunk* chunk) {
     chunk->count = 0;
     chunk->capacity = 0;
@@ -40,6 +41,8 @@ void freeChunk(Chunk* chunk) {
 
 //只是单纯的写到常量表里
 int addConstant(Chunk* chunk, Value value) {
+    push(value);
     writeValueArray(&chunk->constants, value);
+    pop();
     return chunk->constants.count - 1;//返回位于常量表的索引
 }

@@ -57,6 +57,11 @@ void initVM() {
     vm.objects = NULL;
     vm.frameCount = 0;
     vm.openUpvalues = NULL;
+    vm.grayCount = 0;
+    vm.grayCapacity = 0;
+    vm.grayStack = NULL;
+    vm.bytesAllocated = 0;
+    vm.nextGC = 1024 * 1024;
     initTable(&vm.strings);
     initTable(&vm.globals);
     defineNative("clock", clockNative);
@@ -158,8 +163,9 @@ static bool isFalsey(Value value) {
 }
 
 static void concatenate() {
-    ObjString* b = AS_STRING(pop());
-    ObjString* a = AS_STRING(pop());
+    //先进行查看 防止allocate的时候 对其进行删除了
+    ObjString* b = AS_STRING(peek(0));
+    ObjString* a = AS_STRING(peek(1));
 
     int length = a->length + b->length;
     char* chars = ALLOCATE(char, length + 1);
@@ -168,6 +174,8 @@ static void concatenate() {
     chars[length] = '\0';
 
     ObjString* result = takeString(chars, length);
+    pop();
+    pop();
     push(OBJ_VAL(result));
 }
 

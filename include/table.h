@@ -32,4 +32,6 @@ bool tableGet(Table* table, ObjString* key, Value* value);
 void tableAddAll(Table* from, Table* to);//将一个哈希表 放到 另一个哈希中
 bool tableDelete(Table* table, ObjString* key);//删除条目放置一个tomb 这样下次有同样的key进来就可以找到
 ObjString* tableFindString(Table* table, const char* chars, int length, uint32_t hash);
+void markTable(Table* table);//标记hash表
+void tableRemoveWhite(Table* table);
 #endif
