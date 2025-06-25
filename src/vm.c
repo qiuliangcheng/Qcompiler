@@ -112,12 +112,17 @@ static bool callValue(Value callee, int argCount) {
         switch (OBJ_TYPE(callee)) {
             case OBJ_CLOSURE:
                 //printf("function call\n");
-                 return call(AS_CLOSURE(callee), argCount);
+                return call(AS_CLOSURE(callee), argCount);
             case OBJ_NATIVE: {
                 NativeFn native = AS_NATIVE(callee);
                 Value result = native(argCount, vm.stackTop - argCount);
                 vm.stackTop -= argCount + 1;
                 push(result);
+                return true;
+            }
+            case OBJ_CLASS: { //再本身类的位置创建示例
+                ObjClass* klass = AS_CLASS(callee);
+                vm.stackTop[-argCount - 1] = OBJ_VAL(newInstance(klass));
                 return true;
             }
             default:
@@ -235,12 +240,12 @@ CallFrame* frame = &vm.frames[vm.frameCount - 1];
                 }
                 push(NUMBER_VAL(-AS_NUMBER(pop())));
                 break;    
-             }
+            }
             case OP_PRINT: {
                 printValue(pop());
                 printf("\n");
                 break;
-                }
+            }
             case OP_ADD:{
                 if (IS_STRING(peek(0)) && IS_STRING(peek(1))) {
                     concatenate();
@@ -276,6 +281,34 @@ CallFrame* frame = &vm.frames[vm.frameCount - 1];
             }
             case OP_LESS:{
                 BINARY_OP(BOOL_VAL, <); break;
+            }
+            case OP_GET_PROPERTY: {
+                if (!IS_INSTANCE(peek(0))) {
+                    runtimeError("Only instances have properties.");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                ObjInstance* instance = AS_INSTANCE(peek(0));
+                ObjString* name = READ_STRING();
+                Value value;
+                if (tableGet(&instance->fields, name, &value)) {
+                    pop(); //实例取出 放入属性值
+                    push(value);
+                    break;
+                }
+                runtimeError("Undefined property '%s'.", name->chars);
+                return INTERPRET_RUNTIME_ERROR;
+            }
+            case OP_SET_PROPERTY: {
+                if (!IS_INSTANCE(peek(1))) {
+                    runtimeError("Only instances have fields.");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                ObjInstance* instance = AS_INSTANCE(peek(1));
+                tableSet(&instance->fields, READ_STRING(), peek(0));
+                Value value = pop();
+                pop();
+                push(value);//设置的属性值
+                break;
             }
             case OP_GET_GLOBAL: {
                     ObjString* name = READ_STRING();
@@ -357,6 +390,9 @@ CallFrame* frame = &vm.frames[vm.frameCount - 1];
                 push(*frame->closure->upvalues[slot]->location);
                 break;
             }
+            case OP_CLASS:
+                push(OBJ_VAL(newClass(READ_STRING())));
+                break;
             case OP_SET_UPVALUE: {
                 uint8_t slot = READ_BYTE();
                 *frame->closure->upvalues[slot]->location = peek(0);

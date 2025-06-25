@@ -6,6 +6,11 @@
         "string": "c",
         "vector": "c",
         "iterator": "c",
-        "string_view": "c"
+        "string_view": "c",
+        "system_error": "c",
+        "functional": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c"
     }
 }

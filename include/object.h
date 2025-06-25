@@ -12,6 +12,7 @@
 #include "chunk.h"
 #include "value.h"
 #include "chunk.h"
+#include "table.h"
 #define OBJ_TYPE(value)        (AS_OBJ(value)->type)
 #define IS_STRING(value)       isObjType(value, OBJ_STRING)
 #define AS_STRING(value)       ((ObjString*)AS_OBJ(value))
@@ -24,6 +25,12 @@
 
 #define IS_CLOSURE(value)      isObjType(value, OBJ_CLOSURE)
 #define AS_CLOSURE(value)      ((ObjClosure*)AS_OBJ(value))
+
+#define IS_CLASS(value)        isObjType(value, OBJ_CLASS)
+#define AS_CLASS(value)        ((ObjClass*)AS_OBJ(value))
+
+#define IS_INSTANCE(value)     isObjType(value, OBJ_INSTANCE)
+#define AS_INSTANCE(value)     ((ObjInstance*)AS_OBJ(value))
 
 typedef enum {
     OBJ_BOUND_METHOD,
@@ -68,7 +75,11 @@ typedef struct {
     ObjUpvalue** upvalues;//upvalue数组
     int upvalueCount;
 } ObjClosure;
-
+typedef struct {
+    Obj obj;
+    ObjString* name;
+    Table methods;//类方法
+} ObjClass;
 ObjUpvalue* newUpvalue(Value* slot);
 //本地函数——可以从Lox调用，但是使用C语言实现
 typedef Value (*NativeFn)(int argCount, Value* args);
@@ -76,9 +87,18 @@ typedef struct {
   Obj obj;
   NativeFn function;
 } ObjNative;
+
+typedef struct {
+    Obj obj;
+    ObjClass* klass;//示例属于某个类
+    Table fields; //hash表 存储类变量以及函数
+} ObjInstance;
+
 ObjNative* newNative(NativeFn function);
 ObjFunction* newFunction();
 ObjClosure* newClosure(ObjFunction* function);
+ObjClass* newClass(ObjString* name);
+ObjInstance* newInstance(ObjClass* klass);
 ObjString* takeString(char* chars, int length);
 ObjString* copyString(const char* chars, int length);
 void printObject(Value value);

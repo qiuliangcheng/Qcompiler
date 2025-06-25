@@ -313,7 +313,7 @@ static void call(bool canAssign){
     emitBytes(OP_CALL, argCount);
 
 }
-static void dot(bool canAssign){}
+
 static void or_(bool canAssign){
     int elseJump = emitJump(OP_JUMP_IF_FALSE);
     int endJump = emitJump(OP_JUMP);
@@ -334,6 +334,18 @@ static void and_(bool canAssign){
 }
 static uint8_t identifierConstant(Token* name) {
   return makeConstant(OBJ_VAL(copyString(name->start, name->length)));
+}
+
+static void dot(bool canAssign){
+    consume(TOKEN_IDENTIFIER, "Expect property name after '.'.");//.后面要跟着一个变量名 
+    uint8_t name = identifierConstant(&parser.previous);
+
+    if (canAssign && match(TOKEN_EQUAL)) {
+        expression();
+        emitBytes(OP_SET_PROPERTY, name);
+    } else {
+        emitBytes(OP_GET_PROPERTY, name);
+    }
 }
 static void string(bool canAssign) {
     //copy 需要重新分配内存
@@ -678,8 +690,6 @@ static void statement() {
         whileStatement();
     }else if(match(TOKEN_FOR)){
         forStatement();
-    }else if(match(TOKEN_FUN)){
-        funDeclaration();
     }else if(match(TOKEN_RETURN)){
         returnStatement();
     }else{
@@ -715,11 +725,34 @@ static void synchronize() {
   }
 }
 
+static void method() {
+    consume(TOKEN_IDENTIFIER, "Expect method name.");
+    uint8_t constant = identifierConstant(&parser.previous);
+    emitBytes(OP_METHOD, constant);
+}
+
+static void classDeclaration() {
+    consume(TOKEN_IDENTIFIER, "Expect class name.");
+    uint8_t nameConstant = identifierConstant(&parser.previous);//放到常量表
+    declareVariable();
+
+    emitBytes(OP_CLASS, nameConstant);
+    defineVariable(nameConstant);//定义到全局表中
+    consume(TOKEN_LEFT_BRACE, "Expect '{' before class body.");
+    while (!check(TOKEN_RIGHT_BRACE) && !check(TOKEN_EOF)) {
+        method();
+    }
+    consume(TOKEN_RIGHT_BRACE, "Expect '}' after class body.");
+}
 
 static void declaration() {
     
     if (match(TOKEN_VAR)) {
         varDeclaration();
+    }else if(match(TOKEN_CLASS)) {
+        classDeclaration();
+    }else if(match(TOKEN_FUN)){
+        funDeclaration();
     } else {
         statement();
     }
