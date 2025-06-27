@@ -151,7 +151,7 @@ static bool callValue(Value callee, int argCount) {
 //类
 static bool bindMethod(ObjClass* klass, ObjString* name) {
     Value method;
-    if (!tableGet(&klass->methods, name, &method)) {
+    if (!tableGet(&klass->methods, name, &method)) { 
         runtimeError("Undefined property '%s'.", name->chars);
         return false;
     }
@@ -248,7 +248,7 @@ static bool invoke(ObjString* name, int argCount) {
     }
     ObjInstance* instance = AS_INSTANCE(receiver);
     Value value;
-    if(!tableGet(&instance->fields,name,&value)){
+    if(tableGet(&instance->fields,name,&value)){ //变量
         vm.stackTop[-argCount - 1] = value;
         return callValue(value, argCount);
     }
@@ -335,6 +335,16 @@ CallFrame* frame = &vm.frames[vm.frameCount - 1];
             case OP_DIVIDE:   BINARY_OP(NUMBER_VAL,/); break;
             case OP_NIL: push(NIL_VAL); break;
             case OP_TRUE: push(BOOL_VAL(true)); break;
+            case OP_SUPER_INVOKE: {
+                ObjString* method = READ_STRING();
+                int argCount = READ_BYTE();
+                ObjClass* superclass = AS_CLASS(pop());
+                if (!invokeFromClass(superclass, method, argCount)) {
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                frame = &vm.frames[vm.frameCount - 1];
+                break;
+            }
             case OP_NOT:
                  push(BOOL_VAL(isFalsey(pop())));
                  break;
@@ -413,6 +423,29 @@ CallFrame* frame = &vm.frames[vm.frameCount - 1];
                 push(frame->slots[slot]);//如果使用init的话变为了示例
                 break;
             }
+            case OP_GET_SUPER: {
+                //this super method
+                ObjString* name = READ_STRING();//name
+                ObjClass* superclass = AS_CLASS(pop());
+                if (!bindMethod(superclass, name)) {
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                break;
+            }
+            //father class inherit
+            case OP_INHERIT: {
+                Value superclass = peek(1);
+                if (!IS_CLASS(superclass)) {
+                    runtimeError("Superclass must be a class.");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                ObjClass* subclass = AS_CLASS(peek(0));
+                tableAddAll(&AS_CLASS(superclass)->methods,
+                            &subclass->methods);//父类的方法调用到子类 每个子类都有一个隐藏变量，
+                            //用于存储对其超类的引用。当我们需要执行一个超类调用时，我们就从这个变量访问超类，并告诉运行时从那里开始查找方法。
+                pop(); //father
+                break;
+            }
             case OP_SET_LOCAL: {
                 uint8_t slot = READ_BYTE();
                 frame->slots[slot] = peek(0);
@@ -424,7 +457,8 @@ CallFrame* frame = &vm.frames[vm.frameCount - 1];
                 break;
             }
             case OP_INVOKE: //invoke name count
-                ObjString* method = READ_STRING();
+                ObjString* method = READ_STRING();//没错啊
+                printf("%s\n",method->chars);
                 int argCount = READ_BYTE();
                 if (!invoke(method, argCount)) {
                     return INTERPRET_RUNTIME_ERROR;

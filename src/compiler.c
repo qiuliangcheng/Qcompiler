@@ -46,6 +46,7 @@ typedef struct Compiler{
 } Compiler;
 typedef struct ClassCompiler {
     struct ClassCompiler* enclosing;
+    bool hasSuperclass;
 } ClassCompiler;
 Parser parser;
 Compiler* current = NULL;
@@ -351,7 +352,6 @@ static void and_(bool canAssign){
 
 }
 static uint8_t identifierConstant(Token* name) {
-    ObjString *m=copyString(name->start, name->length);
     //printf("TOKENname %s %p\n",m->chars,m);
     return makeConstant(OBJ_VAL(copyString(name->start, name->length)));
 }
@@ -407,7 +407,7 @@ static int addUpvalue(Compiler* compiler, uint8_t index, bool isLocal) {
         return 0;
     }
     compiler->upvalues[upvalueCount].isLocal = isLocal;
-    compiler->upvalues[upvalueCount].index = index;
+    compiler->upvalues[upvalueCount].index = index;//1
     return compiler->function->upvalueCount++;
 }
 
@@ -418,7 +418,7 @@ static int resolveUpvalue(Compiler* compiler, Token* name) {
     int local = resolveLocal(compiler->enclosing, name);//查看这个变量在上一个的第几个变量位置 可以理解成是外层的第几个栈位置
     if (local != -1) {
         compiler->enclosing->locals[local].isCaptured = true;
-        return addUpvalue(compiler, (uint8_t)local, true);
+        return addUpvalue(compiler, (uint8_t)local, true);//
     }
     int upvalue = resolveUpvalue(compiler->enclosing, name);
     if (upvalue != -1) {
@@ -461,7 +461,37 @@ static void this_(bool canAssign) {
     }
     variable(false);
 } 
-static void super_(bool canAssign){}
+
+static Token syntheticToken(const char* text) {
+    Token token;
+    token.start = text;
+    token.length = (int)strlen(text);
+    return token;
+}
+
+static void super_(bool canAssign) {
+    if (currentClass == NULL) {
+        error("Can't use 'super' outside of a class.");
+    } else if (!currentClass->hasSuperclass) {
+        error("Can't use 'super' in a class with no superclass.");
+    }
+
+    consume(TOKEN_DOT, "Expect '.' after 'super'.");
+    consume(TOKEN_IDENTIFIER, "Expect superclass method name.");
+    uint8_t name = identifierConstant(&parser.previous);//method
+    //获得this 获得super getsuper method
+    namedVariable(syntheticToken("this"), false);
+
+    if (match(TOKEN_LEFT_PAREN)) {
+        uint8_t argCount = argumentList();
+        namedVariable(syntheticToken("super"), false);
+        emitBytes(OP_SUPER_INVOKE, name);
+        emitByte(argCount);
+    } else {
+        namedVariable(syntheticToken("super"), false);
+        emitBytes(OP_GET_SUPER, name);
+    }
+}
 
 
 static void number(bool canAssign) {
@@ -504,6 +534,7 @@ static void addLocal(Token name) {
         return;
     }     
     Local* local = &current->locals[current->localCount++];
+    printf("%s %d\n",name.start,current->localCount);//super是在1啊
     local->name = name;
     local->depth = -1;//这个只是声明
     local->isCaptured = false;
@@ -774,6 +805,8 @@ static void method() {
     emitBytes(OP_METHOD, constant);
 }
 
+
+
 static void classDeclaration() {
     consume(TOKEN_IDENTIFIER, "Expect class name.");
     Token className = parser.previous;
@@ -783,8 +816,23 @@ static void classDeclaration() {
     emitBytes(OP_CLASS, nameConstant);
     defineVariable(nameConstant);//定义到全局表中
     ClassCompiler classCompiler;
+    classCompiler.hasSuperclass = false;
     classCompiler.enclosing = currentClass;
     currentClass = &classCompiler;
+    if (match(TOKEN_LESS)) {
+        consume(TOKEN_IDENTIFIER, "Expect superclass name.");
+        variable(false);//before getfather
+        if (identifiersEqual(&className, &parser.previous)) {
+            error("A class can't inherit from itself.");
+        }
+        beginScope();
+        addLocal(syntheticToken("super"));// 空 super 
+        defineVariable(0);
+        namedVariable(className, false);//father class  classname inherit class
+        emitByte(OP_INHERIT);
+        classCompiler.hasSuperclass = true;
+    }
+
     namedVariable(className, false);//方法名要获取类名字
     consume(TOKEN_LEFT_BRACE, "Expect '{' before class body.");
     while (!check(TOKEN_RIGHT_BRACE) && !check(TOKEN_EOF)) {
@@ -793,6 +841,9 @@ static void classDeclaration() {
     consume(TOKEN_RIGHT_BRACE, "Expect '}' after class body.");
     //执行每一条OP_METHOD指令时，栈顶是方法的闭包，它下面就是类
     emitByte(OP_POP);//类名字弹出
+    if (classCompiler.hasSuperclass) {
+        endScope();
+    }
     currentClass = currentClass->enclosing;
 }
 
